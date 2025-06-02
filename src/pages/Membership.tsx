@@ -186,7 +186,7 @@ Mensagem: ${formData.message || 'Não informada'}
                   Se você tem dúvidas ou prefere um atendimento mais personalizado, fale diretamente com um dos nossos coordenadores.
                 </p>
                 <Button 
-                  href="https://wa.me/5511999999999?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20Monopoly%20Express" 
+                  href="https://wa.me/5511970603441?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20Monopoly%20Express" 
                   variant="primary"
                   className="w-full sm:w-auto"
                 >
