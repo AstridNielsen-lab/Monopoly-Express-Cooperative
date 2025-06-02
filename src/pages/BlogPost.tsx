@@ -89,7 +89,7 @@ const BlogPost: React.FC = () => {
               </p>
               
               <blockquote className="border-l-4 border-primary pl-4 italic text-gray-300 my-8">
-                "Quando nos unimos, provamos que somos capazes de mudar as regras do jogo. Não somos apenas entregadores, somos protagonistas de uma transformação no mercado de trabalho." — Roberto Oliveira, membro fundador
+                "Quando nos unimos, provamos que somos capazes de mudar as regras do jogo. Não somos apenas entregadores, somos protagonistas de uma transformação no mercado de trabalho." — Julio Campos Machado, Membro Fundador e CTO
               </blockquote>
               
               <h2 className="text-2xl font-bold text-white mt-8 mb-4">Próximos passos</h2>
