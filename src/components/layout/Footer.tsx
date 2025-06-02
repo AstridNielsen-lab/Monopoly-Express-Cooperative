@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Phone, MessageCircle, Send } from 'lucide-react';
+import { Instagram, Phone, MessageCircle, Send, Github } from 'lucide-react';
 import Logo from '../ui/Logo';
 
-const Footer: React.FC = () => {
+function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -35,11 +35,11 @@ const Footer: React.FC = () => {
                 <MessageCircle size={24} />
               </a>
               <a 
-                href="https://www.facebook.com/likelooksolutions" 
+                href="https://t.me/use_chatGPT" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-gray-400 hover:text-accent transition-colors duration-200"
-                aria-label="Facebook"
+                aria-label="Telegram"
               >
                 <Send size={24} />
               </a>
@@ -82,8 +82,8 @@ const Footer: React.FC = () => {
             <ul className="space-y-4">
               <li className="flex items-center text-gray-400">
                 <Phone size={18} className="mr-2" />
-                <a href="tel:+5511992946628" className="hover:text-accent transition-colors duration-200">
-                  (11) 99294-6628
+                <a href="tel:+5511970603441" className="hover:text-accent transition-colors duration-200">
+                  (11) 97060-3441
                 </a>
               </li>
               <li className="flex items-center text-gray-400">
@@ -98,9 +98,9 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-bold text-white mb-4">Endereço</h3>
             <p className="text-gray-400">
-              Rua. Dante Pellacani, 92<br />
-              Tatuapé, São Paulo - SP<br />
-              CEP: 03334-070
+              Av. Paulista, 1000<br />
+              Bela Vista, São Paulo - SP<br />
+              CEP: 01310-100
             </p>
           </div>
         </div>
@@ -110,7 +110,18 @@ const Footer: React.FC = () => {
             <p className="text-gray-500 text-sm mb-4 md:mb-0">
               Monopoly Express – Todos os direitos reservados © {currentYear}
             </p>
-            <div className="flex space-x-4">
+            <div className="flex items-center space-x-6">
+              <div className="flex items-center text-gray-400 hover:text-accent transition-colors duration-200">
+                <a 
+                  href="https://github.com/AstridNielsen-lab/Like-Look-Express"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center"
+                >
+                  <Github size={18} className="mr-2" />
+                  <span>Laboratório Técnico</span>
+                </a>
+              </div>
               <Link to="/termos-de-uso" className="text-gray-500 text-sm hover:text-accent transition-colors duration-200">
                 Termos de Uso
               </Link>
@@ -123,6 +134,6 @@ const Footer: React.FC = () => {
       </div>
     </footer>
   );
-};
+}
 
 export default Footer;
