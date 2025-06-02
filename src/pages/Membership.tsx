@@ -268,7 +268,7 @@ const Membership: React.FC = () => {
                           value={formData.phone}
                           onChange={handlePhoneChange}
                           className={`w-full px-4 py-2 bg-secondary-dark border ${formErrors.phone ? 'border-error' : 'border-gray-700'} rounded-lg focus:outline-none focus:ring-2 focus:ring-primary`}
-                          placeholder="(11) 99999-9999"
+                          placeholder="(11) 97060-3441"
                         />
                         {formErrors.phone && <p className="mt-1 text-error text-sm">{formErrors.phone}</p>}
                       </div>
