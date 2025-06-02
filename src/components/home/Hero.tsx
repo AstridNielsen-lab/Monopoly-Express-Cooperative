@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
               <div className="absolute -top-10 -left-10 w-32 h-32 bg-primary rounded-full opacity-20 animate-pulse"></div>
               <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-accent rounded-full opacity-20 animate-pulse delay-700"></div>
               <img 
-                src="https://thumbs.dreamstime.com/b/helping-hand-psychological-concept-aid-support-symbolizing-compassion-empathy-fostering-connections-resilience-313613537.jpg?auto=compress&cs=tinysrgb&w=1600" 
+                src="https://www.pharmastellen.jobs/tipps/allgemeine-informationen/teaser.jpg?auto=compress&cs=tinysrgb&w=1600" 
                 alt="Entregador Monopoly Express" 
                 className="rounded-lg shadow-2xl max-h-[600px] object-cover"
               />
