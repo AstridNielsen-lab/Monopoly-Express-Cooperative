@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex mt-6 space-x-4">
               <a 
-                href="https://instagram.com" 
+                href="https://www.instagram.com/radiotatuapefm" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-gray-400 hover:text-accent transition-colors duration-200"
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
                 <Instagram size={24} />
               </a>
               <a 
-                href="https://wa.me/5511999999999" 
+                href="https://wa.me/5511970603441" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-gray-400 hover:text-accent transition-colors duration-200"
@@ -35,11 +35,11 @@ const Footer: React.FC = () => {
                 <MessageCircle size={24} />
               </a>
               <a 
-                href="https://t.me/monopolyexpress" 
+                href="https://www.facebook.com/likelooksolutions" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-gray-400 hover:text-accent transition-colors duration-200"
-                aria-label="Telegram"
+                aria-label="Facebook"
               >
                 <Send size={24} />
               </a>
@@ -82,13 +82,13 @@ const Footer: React.FC = () => {
             <ul className="space-y-4">
               <li className="flex items-center text-gray-400">
                 <Phone size={18} className="mr-2" />
-                <a href="tel:+551199999999" className="hover:text-accent transition-colors duration-200">
-                  (11) 9999-9999
+                <a href="tel:+5511992946628" className="hover:text-accent transition-colors duration-200">
+                  (11) 99294-6628
                 </a>
               </li>
               <li className="flex items-center text-gray-400">
                 <MessageCircle size={18} className="mr-2" />
-                <a href="https://wa.me/5511999999999" className="hover:text-accent transition-colors duration-200">
+                <a href="https://wa.me/5511970603441" className="hover:text-accent transition-colors duration-200">
                   WhatsApp
                 </a>
               </li>
@@ -98,9 +98,9 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-bold text-white mb-4">Endereço</h3>
             <p className="text-gray-400">
-              Av. Paulista, 1000<br />
-              Bela Vista, São Paulo - SP<br />
-              CEP: 01310-100
+              Rua. Dante Pellacani, 92<br />
+              Tatuapé, São Paulo - SP<br />
+              CEP: 03334-070
             </p>
           </div>
         </div>
