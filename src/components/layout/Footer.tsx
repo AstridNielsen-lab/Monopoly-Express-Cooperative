@@ -98,9 +98,9 @@ function Footer() {
           <div>
             <h3 className="text-lg font-bold text-white mb-4">Endereço</h3>
             <p className="text-gray-400">
-              Av. Paulista, 1000<br />
-              Bela Vista, São Paulo - SP<br />
-              CEP: 01310-100
+              Rua. Dante Pellacani, 92<br />
+              Tatuapé, São Paulo - SP<br />
+              CEP: 03334-070
             </p>
           </div>
         </div>
