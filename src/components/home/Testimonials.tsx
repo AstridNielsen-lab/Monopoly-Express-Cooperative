@@ -19,9 +19,9 @@ const Testimonials: React.FC = () => {
     },
     {
       quote: "As plataformas tradicionais estavam me explorando. Aqui na Monopoly, tenho autonomia de verdade e faço parte de algo maior.",
-      name: "Roberto Oliveira",
-      role: "Membro fundador",
-      image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400"
+      name: "Julio Campos Machado",
+      role: "Fundador",
+      image: "https://th.bing.com/th/id/OIP.h_qSAvnfmWBVl9yzjduy-QHaHa?rs=1&pid=ImgDetMain?auto=compress&cs=tinysrgb&w=400"
     }
   ];
 
