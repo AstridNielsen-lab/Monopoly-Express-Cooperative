@@ -28,7 +28,7 @@ const CTA: React.FC = () => {
               Quero me cadastrar
             </Button>
             <Button 
-              href="https://wa.me/5511999999999" 
+              href="https://wa.me/5511970603441" 
               variant="outline" 
               size="lg"
               className="border-white text-white hover:bg-white/10"
