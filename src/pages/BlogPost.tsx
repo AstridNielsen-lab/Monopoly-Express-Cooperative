@@ -120,7 +120,7 @@ const BlogPost: React.FC = () => {
               
               <div>
                 <Button
-                  href="https://wa.me/5511999999999?text=Olá!%20Vi%20este%20artigo%20e%20quero%20saber%20mais%20sobre%20a%20Monopoly%20Express"
+                  href="https://wa.me/5511970603441?text=Olá!%20Vi%20este%20artigo%20e%20quero%20saber%20mais%20sobre%20a%20Monopoly%20Express"
                   variant="primary"
                   className="flex items-center"
                 >
