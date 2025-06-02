@@ -20,7 +20,7 @@ const Testimonials: React.FC = () => {
     {
       quote: "As plataformas tradicionais estavam me explorando. Aqui na Monopoly, tenho autonomia de verdade e faço parte de algo maior.",
       name: "Julio Campos Machado",
-      role: "Fundador",
+      role: "Fundador CTO",
       image: "https://th.bing.com/th/id/OIP.h_qSAvnfmWBVl9yzjduy-QHaHa?rs=1&pid=ImgDetMain?auto=compress&cs=tinysrgb&w=400"
     }
   ];
