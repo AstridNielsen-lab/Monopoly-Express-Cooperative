@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent_gold">#F59E0B</color>
+    <color name="accent_gold_dark">#D97706</color>
+    <color name="background_card">#FFFFFF</color>
+    <color name="background_color">#F9FAFB</color>
+    <color name="background_light">#F9FAFB</color>
+    <color name="background_light_gray">#F9FAFB</color>
+    <color name="background_white">#FFFFFF</color>
+    <color name="border_color">#E5E7EB</color>
+    <color name="colorAccent">@color/accent_gold</color>
+    <color name="colorPrimary">@color/primary_red</color>
+    <color name="colorPrimaryDark">@color/primary_red_dark</color>
+    <color name="error_color">#EF4444</color>
+    <color name="error_red">#EF4444</color>
+    <color name="light_gray">#E5E7EB</color>
+    <color name="logo_accent">#FFFFFF</color>
+    <color name="logo_background">#DC2626</color>
+    <color name="logo_border">#B91C1C</color>
+    <color name="logo_speed">#F59E0B</color>
+    <color name="logo_text">#FFFFFF</color>
+    <color name="logo_wheel">#374151</color>
+    <color name="monopoly_accent">#F59E0B</color>
+    <color name="monopoly_accent_dark">#D97706</color>
+    <color name="monopoly_primary">#DC2626</color>
+    <color name="monopoly_primary_dark">#B91C1C</color>
+    <color name="monopoly_secondary">#1F2937</color>
+    <color name="primary_color">#DC2626</color>
+    <color name="primary_red">#DC2626</color>
+    <color name="primary_red_dark">#B91C1C</color>
+    <color name="secondary_dark">#1F2937</color>
+    <color name="secondary_dark_variant">#111827</color>
+    <color name="splash_accent_color">#F59E0B</color>
+    <color name="splash_background">#1F2937</color>
+    <color name="splash_subtitle_color">#9CA3AF</color>
+    <color name="splash_text_color">#FFFFFF</color>
+    <color name="success_color">#10B981</color>
+    <color name="success_green">#10B981</color>
+    <color name="text_dark">#1F2937</color>
+    <color name="text_gray">#6B7280</color>
+    <color name="text_primary">#1F2937</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="warning_color">#F59E0B</color>
+    <color name="warning_yellow">#F59E0B</color>
+    <color name="white">#FFFFFF</color>
+    <string name="aceitar_corrida">Aceitar Corrida</string>
+    <string name="app_logo">Logo do Monopoly Express</string>
+    <string name="app_name">Monopoly Express</string>
+    <string name="app_subtitle">Entrega Rápida e Confiável</string>
+    <string name="cliente_button">CLIENTE</string>
+    <string name="coleta">Coleta:</string>
+    <string name="corridas_disponiveis">Corridas Disponíveis</string>
+    <string name="cpf_hint">CPF</string>
+    <string name="descricao_pedido">Descrição do Pedido</string>
+    <string name="email_hint">E-mail</string>
+    <string name="endereco_coleta">Endereço de Coleta</string>
+    <string name="endereco_entrega">Endereço de Entrega</string>
+    <string name="entrega">Entrega:</string>
+    <string name="enviar_solicitacao">Enviar Solicitação</string>
+    <string name="full_name_hint">Nome Completo</string>
+    <string name="have_account">Já tem conta? Faça login</string>
+    <string name="loading_text">Carregando...</string>
+    <string name="login_button">Entrar</string>
+    <string name="login_title">Bem-vindo ao Monopoly Express</string>
+    <string name="motoboy_button">MOTOBOY</string>
+    <string name="nenhuma_corrida">Nenhuma corrida disponível no momento</string>
+    <string name="no_account">Não tem conta? Cadastre-se</string>
+    <string name="password_hint">Senha</string>
+    <string name="phone_hint">Telefone</string>
+    <string name="register_button">Cadastrar</string>
+    <string name="register_title">Criar Conta</string>
+    <string name="solicitar_coleta">Solicitar Coleta</string>
+    <string name="status_aceita">Corrida Aceita</string>
+    <string name="status_aguardando">Aguardando Motoboy</string>
+    <string name="status_coletado">Coletado</string>
+    <string name="status_entregue">Entregue</string>
+    <string name="user_type_client">Cliente</string>
+    <string name="user_type_hint">Tipo de Usuário</string>
+    <string name="user_type_motoboy">Motoboy</string>
+    <string name="valor">Valor:</string>
+    <string name="valor_frete">Valor do Frete (R$)</string>
+    <string name="valor_rs_15_00">R$ 15,00</string>
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/monopoly_primary</item>
+        <item name="colorPrimaryVariant">@color/monopoly_primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/monopoly_accent</item>
+        <item name="colorSecondaryVariant">@color/monopoly_accent_dark</item>
+        <item name="colorOnSecondary">@color/monopoly_secondary</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+    <style name="ButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="backgroundTint">?attr/colorPrimary</item>
+    </style>
+    <style name="CardStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardElevation">4dp</item>
+    </style>
+    <style name="EditTextStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">16dp</item>
+    </style>
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/splash_background</item>
+        <item name="android:statusBarColor">@color/splash_background</item>
+        <item name="android:navigationBarColor">@color/splash_background</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowFullscreen">false</item>
+    </style>
+</resources>

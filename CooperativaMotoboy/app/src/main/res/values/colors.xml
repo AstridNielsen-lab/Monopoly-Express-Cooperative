@@ -39,5 +39,29 @@
     <!-- Missing colors for layout compatibility -->
     <color name="background_color">#F9FAFB</color>
     <color name="light_gray">#E5E7EB</color>
+    
+    <!-- Splash Screen Colors -->
+    <color name="splash_background">#1F2937</color>
+    <color name="splash_text_color">#FFFFFF</color>
+    <color name="splash_subtitle_color">#9CA3AF</color>
+    <color name="splash_accent_color">#F59E0B</color>
+    
+    <!-- Logo Colors -->
+    <color name="logo_background">#DC2626</color>
+    <color name="logo_border">#B91C1C</color>
+    <color name="logo_accent">#FFFFFF</color>
+    <color name="logo_wheel">#374151</color>
+    <color name="logo_speed">#F59E0B</color>
+    <color name="logo_text">#FFFFFF</color>
+    
+    <!-- Mapa do Motoboy Colors -->
+    <color name="primary_color">#DC2626</color>
+    <color name="success_color">#10B981</color>
+    <color name="warning_color">#F59E0B</color>
+    <color name="error_color">#EF4444</color>
+    <color name="text_primary">#1F2937</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="background_light">#F9FAFB</color>
+    <color name="border_color">#E5E7EB</color>
 </resources>
 

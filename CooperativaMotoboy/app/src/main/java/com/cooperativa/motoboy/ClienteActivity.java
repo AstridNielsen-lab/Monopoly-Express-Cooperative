@@ -31,7 +31,7 @@ public class ClienteActivity extends AppCompatActivity {
     private TextView tvDistancia;
 
     private GerenciadorCorridas gerenciadorCorridas;
-    private static final double PRECO_POR_KM = 4.0;
+    private static final double PRECO_POR_KM = 5.0; // R$ 5,00 por km conforme especificação
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

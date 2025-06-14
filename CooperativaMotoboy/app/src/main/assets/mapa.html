@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monopoly Express - Mapa</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" 
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" 
+          crossorigin="" />
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+        
+        .custom-div-icon {
+            background: none;
+            border: none;
+        }
+        
+        .marker-pin {
+            width: 30px;
+            height: 30px;
+            border-radius: 50% 50% 50% 0;
+            background: #4285f4;
+            position: absolute;
+            transform: rotate(-45deg);
+            left: 50%;
+            top: 50%;
+            margin: -15px 0 0 -15px;
+            animation: bounce 1s infinite alternate;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .marker-pin-motoboy {
+            background: #34a853;
+        }
+        
+        .marker-pin-pickup {
+            background: #fbbc05;
+        }
+        
+        .marker-pin-delivery {
+            background: #ea4335;
+        }
+        
+        .marker-pin::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            margin: 11px 0 0 11px;
+            background: #fff;
+            position: absolute;
+            border-radius: 50%;
+        }
+        
+        @keyframes bounce {
+            0% { transform: translateY(0px) rotate(-45deg); }
+            100% { transform: translateY(-10px) rotate(-45deg); }
+        }
+        
+        .info-panel {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            max-width: 250px;
+            font-size: 12px;
+        }
+        
+        .route-info {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+        
+        .route-info strong {
+            color: #2c5aa0;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    
+    <div class="info-panel" id="infoPanel" style="display: none;">
+        <h4 style="margin: 0 0 10px 0; color: #2c5aa0;">📍 Informações da Rota</h4>
+        <div class="route-info">
+            <span>Distância:</span>
+            <strong id="routeDistance">-</strong>
+        </div>
+        <div class="route-info">
+            <span>Tempo estimado:</span>
+            <strong id="routeTime">-</strong>
+        </div>
+        <div class="route-info">
+            <span>Valor:</span>
+            <strong id="routeValue" style="color: #34a853;">-</strong>
+        </div>
+    </div>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" 
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" 
+            crossorigin=""></script>
+            
+    <script>
+        // Inicializar o mapa
+        var map = L.map('map').setView([-23.5505, -46.6333], 13); // São Paulo como padrão
+        
+        // Adicionar tiles do OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors | Monopoly Express',
+            maxZoom: 19
+        }).addTo(map);
+        
+        // Variáveis globais
+        var motoboyMarker = null;
+        var pickupMarker = null;
+        var deliveryMarker = null;
+        var routeControl = null;
+        var currentPosition = null;
+        
+        // Função para criar marcador customizado
+        function createCustomMarker(className) {
+            return L.divIcon({
+                className: 'custom-div-icon',
+                html: '<div class="marker-pin ' + className + '"></div>',
+                iconSize: [30, 30],
+                iconAnchor: [15, 30]
+            });
+        }
+        
+        // Função chamada pelo Android para atualizar localização do motoboy
+        function updateMotoboyLocation(lat, lng) {
+            currentPosition = [lat, lng];
+            
+            if (motoboyMarker) {
+                motoboyMarker.setLatLng([lat, lng]);
+            } else {
+                motoboyMarker = L.marker([lat, lng], {
+                    icon: createCustomMarker('marker-pin-motoboy')
+                }).addTo(map);
+                motoboyMarker.bindPopup('🏍️ Você está aqui!');
+            }
+            
+            // Centralizar o mapa na posição do motoboy
+            map.setView([lat, lng], 15);
+        }
+        
+        // Função chamada pelo Android para mostrar rota
+        function showRoute(pickupLat, pickupLng, deliveryLat, deliveryLng, entregaId) {
+            // Remover marcadores anteriores
+            if (pickupMarker) map.removeLayer(pickupMarker);
+            if (deliveryMarker) map.removeLayer(deliveryMarker);
+            
+            // Adicionar marcadores de coleta e entrega
+            pickupMarker = L.marker([pickupLat, pickupLng], {
+                icon: createCustomMarker('marker-pin-pickup')
+            }).addTo(map);
+            pickupMarker.bindPopup('📦 Ponto de Coleta');
+            
+            deliveryMarker = L.marker([deliveryLat, deliveryLng], {
+                icon: createCustomMarker('marker-pin-delivery')
+            }).addTo(map);
+            deliveryMarker.bindPopup('🏠 Ponto de Entrega');
+            
+            // Calcular e mostrar rota usando OpenRouteService
+            calculateRoute(pickupLat, pickupLng, deliveryLat, deliveryLng);
+            
+            // Ajustar zoom para mostrar todos os pontos
+            var group = new L.featureGroup([pickupMarker, deliveryMarker]);
+            if (motoboyMarker) {
+                group.addLayer(motoboyMarker);
+            }
+            map.fitBounds(group.getBounds().pad(0.1));
+        }
+        
+        // Função para calcular rota
+        function calculateRoute(startLat, startLng, endLat, endLng) {
+            var apiKey = '5b3ce3597851110001cf6248a1b5dc9ebfcf4e8ca41bfdef1a9a306f'; // Chave pública do OpenRouteService
+            
+            fetch(`https://api.openrouteservice.org/v2/directions/driving-car?api_key=${apiKey}&start=${startLng},${startLat}&end=${endLng},${endLat}`, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.features && data.features[0]) {
+                    var route = data.features[0];
+                    var coords = route.geometry.coordinates;
+                    
+                    // Converter coordenadas para Leaflet (lat, lng)
+                    var latLngs = coords.map(coord => [coord[1], coord[0]]);
+                    
+                    // Remover rota anterior
+                    if (routeControl) {
+                        map.removeLayer(routeControl);
+                    }
+                    
+                    // Adicionar nova rota
+                    routeControl = L.polyline(latLngs, {
+                        color: '#4285f4',
+                        weight: 5,
+                        opacity: 0.8
+                    }).addTo(map);
+                    
+                    // Mostrar informações da rota
+                    var distance = (route.properties.segments[0].distance / 1000).toFixed(1);
+                    var duration = Math.round(route.properties.segments[0].duration / 60);
+                    var value = Math.max(5, distance * 5).toFixed(2);
+                    
+                    document.getElementById('routeDistance').textContent = distance + ' km';
+                    document.getElementById('routeTime').textContent = duration + ' min';
+                    document.getElementById('routeValue').textContent = 'R$ ' + value;
+                    document.getElementById('infoPanel').style.display = 'block';
+                    
+                    // Notificar o Android sobre os dados da rota
+                    if (window.Android) {
+                        window.Android.onRouteCalculated(distance, duration, value);
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao calcular rota:', error);
+                // Fallback: linha reta
+                if (routeControl) {
+                    map.removeLayer(routeControl);
+                }
+                routeControl = L.polyline([[startLat, startLng], [endLat, endLng]], {
+                    color: '#ea4335',
+                    weight: 3,
+                    opacity: 0.6,
+                    dashArray: '10, 10'
+                }).addTo(map);
+            });
+        }
+        
+        // Função chamada pelo Android para limpar o mapa
+        function clearMap() {
+            if (pickupMarker) {
+                map.removeLayer(pickupMarker);
+                pickupMarker = null;
+            }
+            if (deliveryMarker) {
+                map.removeLayer(deliveryMarker);
+                deliveryMarker = null;
+            }
+            if (routeControl) {
+                map.removeLayer(routeControl);
+                routeControl = null;
+            }
+            document.getElementById('infoPanel').style.display = 'none';
+        }
+        
+        // Função para obter posição atual
+        function getCurrentPosition() {
+            return currentPosition;
+        }
+        
+        // Evento de clique no mapa (para debug)
+        map.on('click', function(e) {
+            console.log('Clique no mapa:', e.latlng);
+        });
+        
+        // Inicialização
+        console.log('Mapa inicializado - Monopoly Express');
+    </script>
+</body>
+</html>
+

@@ -20,5 +20,28 @@
     <string name="status_coletado">Coletado</string>
     <string name="status_entregue">Entregue</string>
     <string name="valor_rs_15_00">R$ 15,00</string>
+    
+    <!-- Splash Screen Strings -->
+    <string name="app_logo">Logo do Monopoly Express</string>
+    <string name="app_subtitle">Entrega Rápida e Confiável</string>
+    <string name="loading_text">Carregando...</string>
+    
+    <!-- Login/Cadastro Strings -->
+    <string name="login_title">Bem-vindo ao Monopoly Express</string>
+    <string name="email_hint">E-mail</string>
+    <string name="password_hint">Senha</string>
+    <string name="login_button">Entrar</string>
+    <string name="register_button">Cadastrar</string>
+    <string name="no_account">Não tem conta? Cadastre-se</string>
+    <string name="have_account">Já tem conta? Faça login</string>
+    
+    <!-- Cadastro Strings -->
+    <string name="register_title">Criar Conta</string>
+    <string name="full_name_hint">Nome Completo</string>
+    <string name="cpf_hint">CPF</string>
+    <string name="phone_hint">Telefone</string>
+    <string name="user_type_hint">Tipo de Usuário</string>
+    <string name="user_type_client">Cliente</string>
+    <string name="user_type_motoboy">Motoboy</string>
 </resources>
 

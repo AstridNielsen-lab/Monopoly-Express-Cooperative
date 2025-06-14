@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="150dp"
+    android:height="150dp"
+    android:viewportWidth="150"
+    android:viewportHeight="150">
+    
+    <!-- Background Circle -->
+    <path
+        android:pathData="M75,10 A65,65 0 1,1 75,140 A65,65 0 1,1 75,10 Z"
+        android:fillColor="@color/logo_background"
+        android:strokeColor="@color/logo_border"
+        android:strokeWidth="3" />
+    
+    <!-- Motorcycle Icon -->
+    <group android:translateX="75" android:translateY="75">
+        
+        <!-- Motorcycle Body -->
+        <path
+            android:pathData="M-25,-10 L15,-10 L20,-5 L20,5 L15,10 L-25,10 L-30,5 L-30,-5 Z"
+            android:fillColor="@color/logo_accent" />
+        
+        <!-- Front Wheel -->
+        <path
+            android:pathData="M23,15 A8,8 0 1,1 7,15 A8,8 0 1,1 23,15 Z"
+            android:fillColor="@color/logo_wheel"
+            android:strokeColor="@color/logo_border"
+            android:strokeWidth="2" />
+        
+        <!-- Rear Wheel -->
+        <path
+            android:pathData="M-12,15 A8,8 0 1,1 -28,15 A8,8 0 1,1 -12,15 Z"
+            android:fillColor="@color/logo_wheel"
+            android:strokeColor="@color/logo_border"
+            android:strokeWidth="2" />
+        
+        <!-- Handlebar -->
+        <path
+            android:pathData="M12,-15 L18,-15 M15,-15 L15,-10"
+            android:strokeColor="@color/logo_accent"
+            android:strokeWidth="3"
+            android:strokeLineCap="round" />
+        
+        <!-- Speed Lines -->
+        <path
+            android:pathData="M25,-20 L35,-15 M25,-10 L35,-5 M25,0 L35,5"
+            android:strokeColor="@color/logo_speed"
+            android:strokeWidth="2"
+            android:strokeLineCap="round" />
+            
+    </group>
+    
+    <!-- Letter M -->
+    <path
+        android:pathData="M40,120 L40,130 L45,130 L45,125 L50,130 L55,125 L55,130 L60,130 L60,120 L55,120 L50,125 L45,120 Z"
+        android:fillColor="@color/logo_text" />
+    
+    <!-- Letter E -->
+    <path
+        android:pathData="M70,120 L70,130 L85,130 L85,127 L73,127 L73,125 L83,125 L83,122 L73,122 L73,120 L85,120 L85,117 L70,117 Z"
+        android:fillColor="@color/logo_text" />
+    
+</vector>
+

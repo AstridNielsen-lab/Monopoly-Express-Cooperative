@@ -22,6 +22,7 @@ public class Usuario {
     private long dataCadastro;
     private double latitude;
     private double longitude;
+    private String tipo; // "CLIENTE" ou "MOTOBOY"
     
     // Construtor
     public Usuario() {
@@ -75,5 +76,8 @@ public class Usuario {
     
     public double getLongitude() { return longitude; }
     public void setLongitude(double longitude) { this.longitude = longitude; }
+    
+    public String getTipo() { return tipo; }
+    public void setTipo(String tipo) { this.tipo = tipo; }
 }
 

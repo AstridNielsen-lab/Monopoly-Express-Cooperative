@@ -14,15 +14,30 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
 
+        <!-- Splash Screen como Activity Principal -->
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:exported="true"
-            android:theme="@style/AppTheme">
+            android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <!-- Login Activity -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+        
+        <!-- MainActivity (antiga principal) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
 
         <activity
             android:name=".ClienteActivity"
@@ -31,6 +46,42 @@
 
         <activity
             android:name=".MotoboyActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+            
+        <!-- Cliente Dashboard -->
+        <activity
+            android:name=".ClienteDashboardActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+            
+        <!-- Solicitar Entrega -->
+        <activity
+            android:name=".SolicitarEntregaActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+            
+        <!-- Motoboy Mapa -->
+        <activity
+            android:name=".MotoboyMapaActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+            
+        <!-- Histórico -->
+        <activity
+            android:name=".HistoricoActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+            
+        <!-- Entregas em Andamento -->
+        <activity
+            android:name=".EntregasAndamentoActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+            
+        <!-- Perfil -->
+        <activity
+            android:name=".PerfilActivity"
             android:exported="false"
             android:theme="@style/AppTheme" />
 

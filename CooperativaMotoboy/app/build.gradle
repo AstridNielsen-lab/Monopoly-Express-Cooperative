@@ -64,6 +64,12 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.7.0'
     implementation 'androidx.lifecycle:lifecycle-livedata:2.7.0'
     
+    // Para WebView e mapas
+    implementation 'androidx.webkit:webkit:1.8.0'
+    
+    // Para localização e GPS
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+    
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
