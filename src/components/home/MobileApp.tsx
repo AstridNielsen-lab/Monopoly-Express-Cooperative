@@ -84,7 +84,7 @@ const MobileApp: React.FC = () => {
                 className="pt-8"
               >
                 <a
-                  href="https://github.com/AstridNielsen-lab/Monopoly-Express-Cooperative/blob/main/CooperativaMotoboy/CooperativaMotoboy-v3.0-legacy.apk"
+                  href="https://github.com/AstridNielsen-lab/Monopoly-Express-Cooperative/tree/main/CooperativaMotoboy"
                   download="CooperativaMotoboy-v4.0.apk"
                   className="inline-flex items-center px-8 py-4 bg-accent hover:bg-accent-dark text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                 >
@@ -92,7 +92,7 @@ const MobileApp: React.FC = () => {
                   Baixar APK v4.0 (5.87MB)
                 </a>
                 <p className="text-sm text-gray-400 mt-3">
-                  Versão 4.0 • Compatível com Android 7.0+ • <a href="https://github.com/AstridNielsen-lab/Monopoly-Express-Cooperative/blob/main/CooperativaMotoboy/CooperativaMotoboy-v3.0-legacy.apk" className="text-accent hover:text-accent-light underline">Todas as versões</a>
+                  Versão 4.0 • Compatível com Android 7.0+ • <a href="https://github.com/AstridNielsen-lab/Monopoly-Express-Cooperative/tree/main/CooperativaMotoboy" className="text-accent hover:text-accent-light underline">Todas as versões</a>
                 </p>
               </motion.div>
             </div>
