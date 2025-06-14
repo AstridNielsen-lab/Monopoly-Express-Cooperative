@@ -26,3 +26,4 @@ const Logo: React.FC<LogoProps> = ({ size = 'medium', variant = 'default' }) => 
 };
 
 export default Logo;
+export { Logo };
