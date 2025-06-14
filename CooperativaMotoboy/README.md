@@ -121,6 +121,29 @@ app/src/main/
 
 ---
 
+## 📱 Download APK
+
+### 🚀 **Versão Atual: 4.0** (14/06/2025)
+
+**📥 Download Direto:**
+- **[📱 CooperativaMotoboy v4.0.apk](https://github.com/AstridNielsen-lab/Monopoly-Express-Cooperative/releases/download/v4.0/CooperativaMotoboy-v4.0.apk)** (5.87 MB)
+- **[📋 Todas as Releases](https://github.com/AstridNielsen-lab/Monopoly-Express-Cooperative/releases)**
+
+**✨ Novidades da v4.0:**
+- 🗺️ Sistema de mapa GPS completo
+- 📍 Localização em tempo real
+- 🔔 Notificações locais
+- ⭐ Sistema de avaliação (1-5 estrelas)
+- 👤 Perfil editável
+- 🧹 Branch única organizada
+
+**📋 Requisitos:**
+- Android 7.0+ (API 24)
+- Permissão GPS/Localização
+- Conexão com internet
+
+---
+
 ## 🔧 Como Compilar e Instalar
 
 ### Pré-requisitos
@@ -137,11 +160,11 @@ app/src/main/
 4. **Execute no dispositivo/emulador**
 
 ```bash
-# Compilar APK
-gradlew.bat assembleDebug
+# Compilar APK Release
+gradlew.bat assembleRelease
 
 # APK gerado em:
-app/build/outputs/apk/debug/app-debug.apk
+app/build/outputs/apk/release/app-release-unsigned.apk
 ```
 
 ---
