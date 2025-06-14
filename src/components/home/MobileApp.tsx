@@ -84,7 +84,7 @@ const MobileApp: React.FC = () => {
                 className="pt-8"
               >
                 <a
-                  href="https://github.com/AstridNielsen-lab/Monopoly-Express-Cooperative/releases/download/v4.0/CooperativaMotoboy-v4.0.apk"
+                  href="https://github.com/AstridNielsen-lab/Monopoly-Express-Cooperative/blob/main/CooperativaMotoboy/CooperativaMotoboy-v3.0-legacy.apk"
                   download="CooperativaMotoboy-v4.0.apk"
                   className="inline-flex items-center px-8 py-4 bg-accent hover:bg-accent-dark text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                 >
