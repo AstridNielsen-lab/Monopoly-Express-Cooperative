@@ -1,7 +1,15 @@
 [
     {
+        "merged": "com.cooperativa.motoboy.app-mergeReleaseResources-3:/layout/item_entrega_motoboy.xml",
+        "source": "com.cooperativa.motoboy.app-main-5:/layout/item_entrega_motoboy.xml"
+    },
+    {
         "merged": "com.cooperativa.motoboy.app-mergeReleaseResources-3:/layout/item_corrida.xml",
         "source": "com.cooperativa.motoboy.app-main-5:/layout/item_corrida.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-mergeReleaseResources-3:/layout/activity_motoboy_mapa.xml",
+        "source": "com.cooperativa.motoboy.app-main-5:/layout/activity_motoboy_mapa.xml"
     },
     {
         "merged": "com.cooperativa.motoboy.app-mergeReleaseResources-3:/layout/activity_motoboy.xml",
@@ -14,5 +22,21 @@
     {
         "merged": "com.cooperativa.motoboy.app-mergeReleaseResources-3:/layout/activity_main.xml",
         "source": "com.cooperativa.motoboy.app-main-5:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-mergeReleaseResources-3:/layout/activity_splash.xml",
+        "source": "com.cooperativa.motoboy.app-main-5:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-mergeReleaseResources-3:/layout/activity_solicitar_entrega.xml",
+        "source": "com.cooperativa.motoboy.app-main-5:/layout/activity_solicitar_entrega.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-mergeReleaseResources-3:/layout/activity_cliente_dashboard.xml",
+        "source": "com.cooperativa.motoboy.app-main-5:/layout/activity_cliente_dashboard.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-mergeReleaseResources-3:/layout/activity_login.xml",
+        "source": "com.cooperativa.motoboy.app-main-5:/layout/activity_login.xml"
     }
 ]

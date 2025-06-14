@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.cooperativa.motoboy"
-4    android:versionCode="2"
-5    android:versionName="2.0" >
+4    android:versionCode="4"
+5    android:versionName="4.0" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="24"
@@ -33,7 +33,7 @@
 20-->[androidx.core:core:1.9.0] C:\Users\likel\.gradle\caches\transforms-3\543740e42155bb89dcbd6bdda0f43b68\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 21
 22    <application
-22-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:10:5-37:19
+22-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:10:5-88:19
 23        android:allowBackup="true"
 23-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:11:9-35
 24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -45,116 +45,218 @@
 27-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:13:9-41
 28        android:theme="@style/AppTheme" >
 28-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:14:9-40
-29        <activity
-29-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:17:9-25:20
-30            android:name="com.cooperativa.motoboy.MainActivity"
-30-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:18:13-41
-31            android:exported="true"
-31-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:19:13-36
-32            android:theme="@style/AppTheme" >
-32-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:20:13-44
-33            <intent-filter>
-33-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:21:13-24:29
-34                <action android:name="android.intent.action.MAIN" />
-34-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:22:17-69
-34-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:22:25-66
-35
-36                <category android:name="android.intent.category.LAUNCHER" />
-36-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:23:17-77
-36-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:23:27-74
-37            </intent-filter>
-38        </activity>
-39        <activity
-39-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:27:9-30:47
-40            android:name="com.cooperativa.motoboy.ClienteActivity"
-40-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:28:13-44
-41            android:exported="false"
-41-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:29:13-37
-42            android:theme="@style/AppTheme" />
-42-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:30:13-44
-43        <activity
-43-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:32:9-35:47
-44            android:name="com.cooperativa.motoboy.MotoboyActivity"
-44-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:33:13-44
-45            android:exported="false"
-45-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:34:13-37
-46            android:theme="@style/AppTheme" />
-46-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:35:13-44
-47
-48        <service
-48-->[androidx.room:room-runtime:2.6.1] C:\Users\likel\.gradle\caches\transforms-3\6b2f6bbb436920e76f3381464e1cf9db\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
-49            android:name="androidx.room.MultiInstanceInvalidationService"
-49-->[androidx.room:room-runtime:2.6.1] C:\Users\likel\.gradle\caches\transforms-3\6b2f6bbb436920e76f3381464e1cf9db\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
-50            android:directBootAware="true"
-50-->[androidx.room:room-runtime:2.6.1] C:\Users\likel\.gradle\caches\transforms-3\6b2f6bbb436920e76f3381464e1cf9db\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
-51            android:exported="false" />
-51-->[androidx.room:room-runtime:2.6.1] C:\Users\likel\.gradle\caches\transforms-3\6b2f6bbb436920e76f3381464e1cf9db\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
-52
-53        <provider
-53-->[androidx.emoji2:emoji2:1.2.0] C:\Users\likel\.gradle\caches\transforms-3\34e9d2ecb03fed35e86c5ba34096e160\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-54            android:name="androidx.startup.InitializationProvider"
-54-->[androidx.emoji2:emoji2:1.2.0] C:\Users\likel\.gradle\caches\transforms-3\34e9d2ecb03fed35e86c5ba34096e160\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
-55            android:authorities="com.cooperativa.motoboy.androidx-startup"
-55-->[androidx.emoji2:emoji2:1.2.0] C:\Users\likel\.gradle\caches\transforms-3\34e9d2ecb03fed35e86c5ba34096e160\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
-56            android:exported="false" >
-56-->[androidx.emoji2:emoji2:1.2.0] C:\Users\likel\.gradle\caches\transforms-3\34e9d2ecb03fed35e86c5ba34096e160\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
-57            <meta-data
-57-->[androidx.emoji2:emoji2:1.2.0] C:\Users\likel\.gradle\caches\transforms-3\34e9d2ecb03fed35e86c5ba34096e160\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-58                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-58-->[androidx.emoji2:emoji2:1.2.0] C:\Users\likel\.gradle\caches\transforms-3\34e9d2ecb03fed35e86c5ba34096e160\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
-59                android:value="androidx.startup" />
-59-->[androidx.emoji2:emoji2:1.2.0] C:\Users\likel\.gradle\caches\transforms-3\34e9d2ecb03fed35e86c5ba34096e160\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
-60            <meta-data
-60-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\likel\.gradle\caches\transforms-3\f8c318a4b3eb1baf063dd220dd4435c0\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
-61                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-61-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\likel\.gradle\caches\transforms-3\f8c318a4b3eb1baf063dd220dd4435c0\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
-62                android:value="androidx.startup" />
-62-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\likel\.gradle\caches\transforms-3\f8c318a4b3eb1baf063dd220dd4435c0\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
-63            <meta-data
-63-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
-64                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-64-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
-65                android:value="androidx.startup" />
-65-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
-66        </provider>
-67
-68        <receiver
-68-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
-69            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-69-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
-70            android:directBootAware="false"
-70-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
-71            android:enabled="true"
-71-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
-72            android:exported="true"
-72-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
-73            android:permission="android.permission.DUMP" >
-73-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
-74            <intent-filter>
-74-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
-75                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-75-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
-75-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
-76            </intent-filter>
-77            <intent-filter>
-77-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
-78                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-78-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
-78-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
-79            </intent-filter>
-80            <intent-filter>
-80-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
-81                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-81-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
-81-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
-82            </intent-filter>
-83            <intent-filter>
-83-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
-84                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-84-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
-84-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
-85            </intent-filter>
-86        </receiver>
-87    </application>
-88
-89</manifest>
+29
+30        <!-- Splash Screen como Activity Principal -->
+31        <activity
+31-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:18:9-27:20
+32            android:name="com.cooperativa.motoboy.SplashActivity"
+32-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:19:13-43
+33            android:exported="true"
+33-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:20:13-36
+34            android:screenOrientation="portrait"
+34-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:22:13-49
+35            android:theme="@style/SplashTheme" >
+35-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:21:13-47
+36            <intent-filter>
+36-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:23:13-26:29
+37                <action android:name="android.intent.action.MAIN" />
+37-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:24:17-69
+37-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:24:25-66
+38
+39                <category android:name="android.intent.category.LAUNCHER" />
+39-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:25:17-77
+39-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:25:27-74
+40            </intent-filter>
+41        </activity>
+42
+43        <!-- Login Activity -->
+44        <activity
+44-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:30:9-34:52
+45            android:name="com.cooperativa.motoboy.LoginActivity"
+45-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:31:13-42
+46            android:exported="false"
+46-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:32:13-37
+47            android:screenOrientation="portrait"
+47-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:34:13-49
+48            android:theme="@style/AppTheme" />
+48-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:33:13-44
+49
+50        <!-- MainActivity (antiga principal) -->
+51        <activity
+51-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:37:9-40:47
+52            android:name="com.cooperativa.motoboy.MainActivity"
+52-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:38:13-41
+53            android:exported="false"
+53-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:39:13-37
+54            android:theme="@style/AppTheme" />
+54-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:40:13-44
+55        <activity
+55-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:42:9-45:47
+56            android:name="com.cooperativa.motoboy.ClienteActivity"
+56-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:43:13-44
+57            android:exported="false"
+57-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:44:13-37
+58            android:theme="@style/AppTheme" />
+58-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:45:13-44
+59        <activity
+59-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:47:9-50:47
+60            android:name="com.cooperativa.motoboy.MotoboyActivity"
+60-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:48:13-44
+61            android:exported="false"
+61-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:49:13-37
+62            android:theme="@style/AppTheme" />
+62-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:50:13-44
+63
+64        <!-- Cliente Dashboard -->
+65        <activity
+65-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:53:9-56:47
+66            android:name="com.cooperativa.motoboy.ClienteDashboardActivity"
+66-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:54:13-53
+67            android:exported="false"
+67-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:55:13-37
+68            android:theme="@style/AppTheme" />
+68-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:56:13-44
+69
+70        <!-- Solicitar Entrega -->
+71        <activity
+71-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:59:9-62:47
+72            android:name="com.cooperativa.motoboy.SolicitarEntregaActivity"
+72-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:60:13-53
+73            android:exported="false"
+73-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:61:13-37
+74            android:theme="@style/AppTheme" />
+74-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:62:13-44
+75
+76        <!-- Motoboy Mapa -->
+77        <activity
+77-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:65:9-68:47
+78            android:name="com.cooperativa.motoboy.MotoboyMapaActivity"
+78-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:66:13-48
+79            android:exported="false"
+79-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:67:13-37
+80            android:theme="@style/AppTheme" />
+80-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:68:13-44
+81
+82        <!-- Histórico -->
+83        <activity
+83-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:71:9-74:47
+84            android:name="com.cooperativa.motoboy.HistoricoActivity"
+84-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:72:13-46
+85            android:exported="false"
+85-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:73:13-37
+86            android:theme="@style/AppTheme" />
+86-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:74:13-44
+87
+88        <!-- Entregas em Andamento -->
+89        <activity
+89-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:77:9-80:47
+90            android:name="com.cooperativa.motoboy.EntregasAndamentoActivity"
+90-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:78:13-54
+91            android:exported="false"
+91-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:79:13-37
+92            android:theme="@style/AppTheme" />
+92-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:80:13-44
+93
+94        <!-- Perfil -->
+95        <activity
+95-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:83:9-86:47
+96            android:name="com.cooperativa.motoboy.PerfilActivity"
+96-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:84:13-43
+97            android:exported="false"
+97-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:85:13-37
+98            android:theme="@style/AppTheme" />
+98-->C:\Monopoly Express\CooperativaMotoboy\app\src\main\AndroidManifest.xml:86:13-44
+99
+100        <service
+100-->[androidx.room:room-runtime:2.6.1] C:\Users\likel\.gradle\caches\transforms-3\6b2f6bbb436920e76f3381464e1cf9db\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
+101            android:name="androidx.room.MultiInstanceInvalidationService"
+101-->[androidx.room:room-runtime:2.6.1] C:\Users\likel\.gradle\caches\transforms-3\6b2f6bbb436920e76f3381464e1cf9db\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
+102            android:directBootAware="true"
+102-->[androidx.room:room-runtime:2.6.1] C:\Users\likel\.gradle\caches\transforms-3\6b2f6bbb436920e76f3381464e1cf9db\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
+103            android:exported="false" />
+103-->[androidx.room:room-runtime:2.6.1] C:\Users\likel\.gradle\caches\transforms-3\6b2f6bbb436920e76f3381464e1cf9db\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
+104
+105        <provider
+105-->[androidx.emoji2:emoji2:1.2.0] C:\Users\likel\.gradle\caches\transforms-3\34e9d2ecb03fed35e86c5ba34096e160\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+106            android:name="androidx.startup.InitializationProvider"
+106-->[androidx.emoji2:emoji2:1.2.0] C:\Users\likel\.gradle\caches\transforms-3\34e9d2ecb03fed35e86c5ba34096e160\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+107            android:authorities="com.cooperativa.motoboy.androidx-startup"
+107-->[androidx.emoji2:emoji2:1.2.0] C:\Users\likel\.gradle\caches\transforms-3\34e9d2ecb03fed35e86c5ba34096e160\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+108            android:exported="false" >
+108-->[androidx.emoji2:emoji2:1.2.0] C:\Users\likel\.gradle\caches\transforms-3\34e9d2ecb03fed35e86c5ba34096e160\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+109            <meta-data
+109-->[androidx.emoji2:emoji2:1.2.0] C:\Users\likel\.gradle\caches\transforms-3\34e9d2ecb03fed35e86c5ba34096e160\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+110                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+110-->[androidx.emoji2:emoji2:1.2.0] C:\Users\likel\.gradle\caches\transforms-3\34e9d2ecb03fed35e86c5ba34096e160\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+111                android:value="androidx.startup" />
+111-->[androidx.emoji2:emoji2:1.2.0] C:\Users\likel\.gradle\caches\transforms-3\34e9d2ecb03fed35e86c5ba34096e160\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+112            <meta-data
+112-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\likel\.gradle\caches\transforms-3\f8c318a4b3eb1baf063dd220dd4435c0\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
+113                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+113-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\likel\.gradle\caches\transforms-3\f8c318a4b3eb1baf063dd220dd4435c0\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
+114                android:value="androidx.startup" />
+114-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\likel\.gradle\caches\transforms-3\f8c318a4b3eb1baf063dd220dd4435c0\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
+115            <meta-data
+115-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+116                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+116-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+117                android:value="androidx.startup" />
+117-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+118        </provider>
+119
+120        <activity
+120-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\likel\.gradle\caches\transforms-3\4d86ce192fd0897de3942dda2e16eaff\transformed\play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+121            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+121-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\likel\.gradle\caches\transforms-3\4d86ce192fd0897de3942dda2e16eaff\transformed\play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+122            android:exported="false"
+122-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\likel\.gradle\caches\transforms-3\4d86ce192fd0897de3942dda2e16eaff\transformed\play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+123            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+123-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\likel\.gradle\caches\transforms-3\4d86ce192fd0897de3942dda2e16eaff\transformed\play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+124
+125        <meta-data
+125-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\likel\.gradle\caches\transforms-3\0d7b748416573e2f42a378e2a9d07a80\transformed\play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+126            android:name="com.google.android.gms.version"
+126-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\likel\.gradle\caches\transforms-3\0d7b748416573e2f42a378e2a9d07a80\transformed\play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+127            android:value="@integer/google_play_services_version" />
+127-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\likel\.gradle\caches\transforms-3\0d7b748416573e2f42a378e2a9d07a80\transformed\play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+128
+129        <receiver
+129-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+130            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+130-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+131            android:directBootAware="false"
+131-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+132            android:enabled="true"
+132-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+133            android:exported="true"
+133-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+134            android:permission="android.permission.DUMP" >
+134-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+135            <intent-filter>
+135-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+136                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+136-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+136-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+137            </intent-filter>
+138            <intent-filter>
+138-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+139                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+139-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+139-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+140            </intent-filter>
+141            <intent-filter>
+141-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+142                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+142-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+142-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+143            </intent-filter>
+144            <intent-filter>
+144-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+145                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+145-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+145-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\likel\.gradle\caches\transforms-3\e9f0941213a18ba7c3be485484fb9856\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+146            </intent-filter>
+147        </receiver>
+148    </application>
+149
+150</manifest>

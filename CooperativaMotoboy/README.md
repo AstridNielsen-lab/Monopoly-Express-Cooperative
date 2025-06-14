@@ -11,10 +11,10 @@
 - [x] 👤 Dashboard do Cliente ✅
 - [x] 📦 Solicitar Entrega com cálculo automático ✅
 - [x] 📍 API OpenRouteService para distâncias ✅
-- [ ] 🗺️ Tela de Mapa para Motoboy com GPS
-- [ ] 🌟 Funcionalidades extras (notificações, avaliações)
+- [x] 🗺️ Tela de Mapa para Motoboy com GPS ✅
+- [x] 🌟 Funcionalidades extras (notificações, avaliações) ✅
 
-### 📊 Progresso Geral: 75% 🚀
+### 📊 Progresso Geral: 100% 🎉 **VERSÃO 4.0**
 
 ---
 
@@ -170,10 +170,34 @@ app/build/outputs/apk/debug/app-debug.apk
 
 ## 🔄 Changelog
 
-### 🚧 Em Desenvolvimento
-- [ ] Implementando Splash Screen
-- [ ] Criando sistema de Login/Cadastro
-- [ ] Configurando banco SQLite
+### 🎉 Versão 4.0 (Atual) - 14/06/2025
+- ✅ **FINALIZADA:** Implementação completa do mapa GPS para motoboys
+- ✅ **FINALIZADA:** Sistema de localização em tempo real
+- ✅ **FINALIZADA:** Integração OpenStreetMap + Leaflet.js
+- ✅ **FINALIZADA:** Sistema de notificações locais
+- ✅ **FINALIZADA:** Sistema de avaliação de motoboys (1-5 estrelas)
+- ✅ **FINALIZADA:** Perfil editável do usuário
+- ✅ **LIMPEZA:** Reorganização das branches (main como principal)
+- ✅ **BUILD:** APK atualizado com todas as funcionalidades
+
+### 📱 Versão 3.0 - 13/06/2025
+- ✅ Sistema completo de backend SQLite
+- ✅ Autenticação por email implementada
+- ✅ Sistema de aprovação de motoboys
+- ✅ Rotas RESTful funcionais
+- ✅ Build Android (APK) estável
+
+### 🔧 Versão 2.0 - 12/06/2025
+- ✅ Dashboard do cliente funcional
+- ✅ Sistema de solicitação de entregas
+- ✅ Cálculo automático de preços
+- ✅ API OpenRouteService integrada
+
+### 🏗️ Versão 1.0 - 11/06/2025
+- ✅ Splash Screen implementado
+- ✅ Sistema de Login/Cadastro
+- ✅ Banco SQLite configurado
+- ✅ Estrutura básica do projeto
 
 ---
 

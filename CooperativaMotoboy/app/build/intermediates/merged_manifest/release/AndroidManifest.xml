@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cooperativa.motoboy"
-    android:versionCode="2"
-    android:versionName="2.0" >
+    android:versionCode="4"
+    android:versionName="4.0" >
 
     <uses-sdk
         android:minSdkVersion="24"
@@ -26,22 +26,74 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+        <!-- Splash Screen como Activity Principal -->
         <activity
-            android:name="com.cooperativa.motoboy.MainActivity"
+            android:name="com.cooperativa.motoboy.SplashActivity"
             android:exported="true"
-            android:theme="@style/AppTheme" >
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Login Activity -->
+        <activity
+            android:name="com.cooperativa.motoboy.LoginActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <!-- MainActivity (antiga principal) -->
+        <activity
+            android:name="com.cooperativa.motoboy.MainActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
         <activity
             android:name="com.cooperativa.motoboy.ClienteActivity"
             android:exported="false"
             android:theme="@style/AppTheme" />
         <activity
             android:name="com.cooperativa.motoboy.MotoboyActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+
+        <!-- Cliente Dashboard -->
+        <activity
+            android:name="com.cooperativa.motoboy.ClienteDashboardActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+
+        <!-- Solicitar Entrega -->
+        <activity
+            android:name="com.cooperativa.motoboy.SolicitarEntregaActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+
+        <!-- Motoboy Mapa -->
+        <activity
+            android:name="com.cooperativa.motoboy.MotoboyMapaActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+
+        <!-- Histórico -->
+        <activity
+            android:name="com.cooperativa.motoboy.HistoricoActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+
+        <!-- Entregas em Andamento -->
+        <activity
+            android:name="com.cooperativa.motoboy.EntregasAndamentoActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+
+        <!-- Perfil -->
+        <activity
+            android:name="com.cooperativa.motoboy.PerfilActivity"
             android:exported="false"
             android:theme="@style/AppTheme" />
 
@@ -64,6 +116,15 @@
                 android:name="androidx.profileinstaller.ProfileInstallerInitializer"
                 android:value="androidx.startup" />
         </provider>
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
         <receiver
             android:name="androidx.profileinstaller.ProfileInstallReceiver"
