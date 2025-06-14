@@ -30,6 +30,7 @@ const Navbar: React.FC = () => {
     { name: 'Início', path: '/' },
     { name: 'Quem Somos', path: '/quem-somos' },
     { name: 'Como Funciona', path: '/como-funciona' },
+    { name: 'App Motoboy', path: '/#app' },
     { name: 'Seja Membro', path: '/seja-membro' },
     { name: 'Blog', path: '/blog' },
   ];
@@ -55,12 +56,20 @@ const Navbar: React.FC = () => {
                 {link.name}
               </Link>
             ))}
-            <Link
-              to="/seja-membro"
-              className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-6 rounded-full transition-colors duration-200"
-            >
-              Junte-se a nós
-            </Link>
+            <div className="flex items-center space-x-4">
+              <Link
+                to="/login"
+                className="text-white hover:text-accent font-medium transition-colors duration-200"
+              >
+                Entrar
+              </Link>
+              <Link
+                to="/register"
+                className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-6 rounded-full transition-colors duration-200"
+              >
+                Cadastrar
+              </Link>
+            </div>
           </div>
           
           {/* Mobile Navigation Toggle */}
@@ -88,12 +97,20 @@ const Navbar: React.FC = () => {
                   {link.name}
                 </Link>
               ))}
-              <Link
-                to="/seja-membro"
-                className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 text-center mt-2"
-              >
-                Junte-se a nós
-              </Link>
+              <div className="flex flex-col space-y-2 pt-2 border-t border-gray-600">
+                <Link
+                  to="/login"
+                  className="text-white hover:text-accent font-medium transition-colors duration-200 text-center py-2"
+                >
+                  Entrar
+                </Link>
+                <Link
+                  to="/register"
+                  className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-6 rounded-full transition-colors duration-200 text-center"
+                >
+                  Cadastrar
+                </Link>
+              </div>
             </div>
           </div>
         )}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Monopoly Express</string>
+    <string name="cliente_button">CLIENTE</string>
+    <string name="motoboy_button">MOTOBOY</string>
+    <string name="solicitar_coleta">Solicitar Coleta</string>
+    <string name="endereco_coleta">Endereço de Coleta</string>
+    <string name="endereco_entrega">Endereço de Entrega</string>
+    <string name="descricao_pedido">Descrição do Pedido</string>
+    <string name="valor_frete">Valor do Frete (R$)</string>
+    <string name="enviar_solicitacao">Enviar Solicitação</string>
+    <string name="corridas_disponiveis">Corridas Disponíveis</string>
+    <string name="aceitar_corrida">Aceitar Corrida</string>
+    <string name="nenhuma_corrida">Nenhuma corrida disponível no momento</string>
+    <string name="coleta">Coleta:</string>
+    <string name="entrega">Entrega:</string>
+    <string name="valor">Valor:</string>
+    <string name="status_aguardando">Aguardando Motoboy</string>
+    <string name="status_aceita">Corrida Aceita</string>
+    <string name="status_coletado">Coletado</string>
+    <string name="status_entregue">Entregue</string>
+    <string name="valor_rs_15_00">R$ 15,00</string>
+</resources>
+

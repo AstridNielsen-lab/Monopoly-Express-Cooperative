@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import Hero from '../components/home/Hero';
 import Stats from '../components/home/Stats';
 import Features from '../components/home/Features';
+import MobileApp from '../components/home/MobileApp';
 import Testimonials from '../components/home/Testimonials';
 import BlogPreview from '../components/home/BlogPreview';
 import CTA from '../components/home/CTA';
@@ -18,6 +19,7 @@ const Home: React.FC = () => {
       <Hero />
       <Stats />
       <Features />
+      <MobileApp />
       <Testimonials />
       <BlogPreview />
       <CTA />

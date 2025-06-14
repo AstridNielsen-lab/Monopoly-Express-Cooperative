@@ -45,11 +45,11 @@ const Hero: React.FC = () => {
               </Button>
               
               <Button 
-                to="/como-funciona" 
+                href="#app" 
                 variant="outline" 
                 size="lg"
               >
-                Como funciona
+                Baixar App
               </Button>
             </div>
           </motion.div>
