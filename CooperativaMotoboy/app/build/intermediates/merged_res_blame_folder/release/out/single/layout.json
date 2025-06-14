@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "com.cooperativa.motoboy.app-mergeReleaseResources-3:/layout/item_corrida.xml",
+        "source": "com.cooperativa.motoboy.app-main-5:/layout/item_corrida.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-mergeReleaseResources-3:/layout/activity_motoboy.xml",
+        "source": "com.cooperativa.motoboy.app-main-5:/layout/activity_motoboy.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-mergeReleaseResources-3:/layout/activity_cliente.xml",
+        "source": "com.cooperativa.motoboy.app-main-5:/layout/activity_cliente.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-mergeReleaseResources-3:/layout/activity_main.xml",
+        "source": "com.cooperativa.motoboy.app-main-5:/layout/activity_main.xml"
+    }
+]
