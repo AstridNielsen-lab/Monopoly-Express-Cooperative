@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  # Serviço principal do Monopoly Express
+  monopoly-express:
+    build: .
+    ports:
+      - "3001:3001"
+    volumes:
+      - monopoly_data:/app/data
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - DATABASE_URL=/app/data/monopoly_express.db
+      - FRONTEND_URL=https://monopoly-express.vercel.app
+      # Configurar suas variáveis de ambiente aqui
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+      - JWT_SECRET=${JWT_SECRET}
+      - MP_ACCESS_TOKEN=${MP_ACCESS_TOKEN}
+      - MP_PUBLIC_KEY=${MP_PUBLIC_KEY}
+      - MP_CLIENT_ID=${MP_CLIENT_ID}
+      - MP_CLIENT_SECRET=${MP_CLIENT_SECRET}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3001/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  monopoly_data:
+    driver: local
+

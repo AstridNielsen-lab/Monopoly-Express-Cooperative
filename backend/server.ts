@@ -15,9 +15,31 @@ const PORT = process.env.PORT || 3001;
 
 // Middlewares de segurança
 app.use(helmet());
+// Configurar CORS para desenvolvimento e produção
+const allowedOrigins = process.env.ALLOWED_ORIGINS 
+  ? process.env.ALLOWED_ORIGINS.split(',')
+  : ['http://localhost:5173', 'http://localhost:3000'];
+
 app.use(cors({
-  origin: 'http://localhost:5173', // URL do frontend Vite
-  credentials: true
+  origin: (origin, callback) => {
+    // Permitir requests sem origin (mobile apps, Postman, etc.)
+    if (!origin) return callback(null, true);
+    
+    // Em desenvolvimento, permitir localhost
+    if (process.env.NODE_ENV === 'development') {
+      return callback(null, true);
+    }
+    
+    // Em produção, verificar lista de origins permitidas
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    
+    return callback(new Error('Não permitido pelo CORS'));
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 // Rate limiting
