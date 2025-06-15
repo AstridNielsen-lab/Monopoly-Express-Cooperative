@@ -54,9 +54,12 @@ export interface AuthUser {
   id: string;
   email: string;
   user_type: 'user' | 'motoboy' | 'admin';
+  name?: string;
+  phone?: string;
   isPremium?: boolean;
   subscriptionId?: string;
   subscriptionStatus?: string;
+  emailVerified?: boolean;
 }
 
 export interface DashboardStats {
