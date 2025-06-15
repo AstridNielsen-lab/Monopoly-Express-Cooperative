@@ -219,7 +219,119 @@ router.post('/verify/motoboy', async (req, res) => {
 });
 
 /**
- * Login de usuário
+ * Login unificado (usuário, motoboy ou admin)
+ */
+router.post('/login', async (req, res) => {
+  try {
+    const { email, password, userType } = req.body;
+    
+    if (!email || !password || !userType) {
+      return res.status(400).json({ error: 'Email, senha e tipo de usuário são obrigatórios' });
+    }
+    
+    let user = null;
+    let tableName = '';
+    let actualUserType = userType;
+    
+    // Buscar usuário na tabela apropriada
+    if (userType === 'admin' || userType === 'user') {
+      user = db.prepare('SELECT * FROM users WHERE email = ?').get(email);
+      tableName = 'users';
+      
+      // Verificar se é admin
+      if (user && user.role === 'admin') {
+        actualUserType = 'admin';
+      } else {
+        actualUserType = 'user';
+      }
+    } else if (userType === 'motoboy') {
+      user = db.prepare('SELECT * FROM motoboys WHERE email = ?').get(email);
+      tableName = 'motoboys';
+      actualUserType = 'motoboy';
+    }
+    
+    if (!user) {
+      return res.status(401).json({ error: 'Email ou senha incorretos' });
+    }
+    
+    // Verificar senha
+    if (!verifyPassword(password, user.password_hash)) {
+      return res.status(401).json({ error: 'Email ou senha incorretos' });
+    }
+    
+    // Verificações específicas por tipo
+    if (actualUserType === 'admin') {
+      // Admin sempre pode fazer login (sem verificação de email)
+      console.log(`🔐 Admin login: ${email}`);
+    } else if (actualUserType === 'user') {
+      if (!user.email_verified) {
+        return res.status(401).json({ error: 'Email não verificado. Verifique sua caixa de entrada.' });
+      }
+    } else if (actualUserType === 'motoboy') {
+      if (!user.email_verified) {
+        return res.status(401).json({ error: 'Email não verificado. Verifique sua caixa de entrada.' });
+      }
+      if (!user.is_approved) {
+        return res.status(401).json({ error: 'Conta ainda não foi aprovada pela nossa equipe.' });
+      }
+    }
+    
+    // Verificar assinatura no Mercado Pago (apenas para usuários não-admin)
+    let subscriptionInfo = null;
+    if (actualUserType === 'user') {
+      try {
+        const mpService = MercadoPagoService.getInstance();
+        const subscriptionStatus = await mpService.checkUserSubscription(email);
+        
+        // Atualizar status de assinatura no banco local
+        const updateStmt = db.prepare(`
+          UPDATE users 
+          SET 
+            is_premium = ?,
+            subscription_id = ?,
+            subscription_status = ?,
+            subscription_end_date = ?,
+            updated_at = CURRENT_TIMESTAMP
+          WHERE id = ?
+        `);
+        
+        updateStmt.run(
+          subscriptionStatus.isActive,
+          subscriptionStatus.subscriptionId || null,
+          subscriptionStatus.status || 'inactive',
+          subscriptionStatus.nextBillingDate || null,
+          user.id
+        );
+        
+        subscriptionInfo = subscriptionStatus;
+        console.log(`🔍 Assinatura verificada para ${email}:`, subscriptionStatus.isActive ? 'ATIVA' : 'INATIVA');
+        
+      } catch (error) {
+        console.warn('⚠️ Erro ao verificar assinatura durante login:', error);
+        // Não bloquear login por erro na verificação de assinatura
+      }
+    }
+    
+    // Retornar dados do usuário (sem senha)
+    const { password_hash, verification_token, ...userData } = user;
+    
+    res.json({
+      message: 'Login realizado com sucesso',
+      user: {
+        ...userData,
+        user_type: actualUserType,
+        subscription: subscriptionInfo
+      }
+    });
+    
+  } catch (error) {
+    console.error('Erro ao fazer login:', error);
+    res.status(500).json({ error: 'Erro interno do servidor' });
+  }
+});
+
+/**
+ * Login de usuário (manter compatibilidade)
  */
 router.post('/login/user', async (req, res) => {
   try {
@@ -236,7 +348,7 @@ router.post('/login/user', async (req, res) => {
       return res.status(401).json({ error: 'Email ou senha incorretos' });
     }
     
-    if (!user.email_verified) {
+    if (!user.email_verified && user.role !== 'admin') {
       return res.status(401).json({ error: 'Email não verificado. Verifique sua caixa de entrada.' });
     }
     
@@ -284,11 +396,13 @@ router.post('/login/user', async (req, res) => {
     // Retornar dados do usuário (sem senha)
     const { password_hash, verification_token, ...userData } = user;
     
+    const userType = user.role === 'admin' ? 'admin' : 'user';
+    
     res.json({
       message: 'Login realizado com sucesso',
       user: {
         ...userData,
-        user_type: 'user',
+        user_type: userType,
         subscription: subscriptionInfo
       }
     });

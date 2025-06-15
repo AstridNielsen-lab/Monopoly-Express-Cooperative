@@ -23,6 +23,7 @@ import Register from './pages/Register';
 import UserApp from './pages/UserApp';
 import MotoboyApp from './pages/MotoboyApp';
 import Dashboard from './pages/Dashboard';
+import AdminDashboard from './pages/AdminDashboard';
 
 // Layout
 import Layout from './components/layout/Layout';
@@ -121,7 +122,7 @@ function AppContent() {
             path="/dashboard" 
             element={
               <ProtectedRoute allowedUserTypes={['admin']}>
-                <Dashboard />
+                <AdminDashboard />
               </ProtectedRoute>
             } 
           />

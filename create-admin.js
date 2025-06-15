@@ -20,8 +20,8 @@ function hashPassword(password) {
 const adminData = {
   id: uuidv4(),
   email: 'admin@monopolyexpress.com',
-  name: 'Admim',
-  phone: '(11) 99999-9999',
+  name: 'Júlio - Administrador',
+  phone: '(11) 99999-0000',
   password: 'Julio@235689',
   role: 'admin'
 };
