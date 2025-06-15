@@ -1,0 +1,74 @@
+[
+    {
+        "merged": "com.cooperativa.motoboy.app-merged_res-4:/drawable_ic_arrow_back.xml.flat",
+        "source": "com.cooperativa.motoboy.app-main-6:/drawable/ic_arrow_back.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-merged_res-4:/anim_slide_up.xml.flat",
+        "source": "com.cooperativa.motoboy.app-main-6:/anim/slide_up.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-merged_res-4:/anim_fade_in.xml.flat",
+        "source": "com.cooperativa.motoboy.app-main-6:/anim/fade_in.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-merged_res-4:/layout_activity_cliente_dashboard.xml.flat",
+        "source": "com.cooperativa.motoboy.app-main-6:/layout/activity_cliente_dashboard.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-merged_res-4:/layout_item_entrega_motoboy.xml.flat",
+        "source": "com.cooperativa.motoboy.app-main-6:/layout/item_entrega_motoboy.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-merged_res-4:/drawable_ic_launcher.xml.flat",
+        "source": "com.cooperativa.motoboy.app-main-6:/drawable/ic_launcher.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-merged_res-4:/menu_dashboard_menu.xml.flat",
+        "source": "com.cooperativa.motoboy.app-main-6:/menu/dashboard_menu.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-merged_res-4:/layout_activity_motoboy.xml.flat",
+        "source": "com.cooperativa.motoboy.app-main-6:/layout/activity_motoboy.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-merged_res-4:/layout_activity_main.xml.flat",
+        "source": "com.cooperativa.motoboy.app-main-6:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-merged_res-4:/layout_activity_cliente.xml.flat",
+        "source": "com.cooperativa.motoboy.app-main-6:/layout/activity_cliente.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-merged_res-4:/layout_activity_solicitar_entrega.xml.flat",
+        "source": "com.cooperativa.motoboy.app-main-6:/layout/activity_solicitar_entrega.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-merged_res-4:/layout_activity_motoboy_mapa.xml.flat",
+        "source": "com.cooperativa.motoboy.app-main-6:/layout/activity_motoboy_mapa.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-merged_res-4:/drawable_rounded_background.xml.flat",
+        "source": "com.cooperativa.motoboy.app-main-6:/drawable/rounded_background.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-merged_res-4:/layout_activity_splash.xml.flat",
+        "source": "com.cooperativa.motoboy.app-main-6:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-merged_res-4:/layout_item_corrida.xml.flat",
+        "source": "com.cooperativa.motoboy.app-main-6:/layout/item_corrida.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-merged_res-4:/layout_activity_login.xml.flat",
+        "source": "com.cooperativa.motoboy.app-main-6:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-merged_res-4:/anim_rotate.xml.flat",
+        "source": "com.cooperativa.motoboy.app-main-6:/anim/rotate.xml"
+    },
+    {
+        "merged": "com.cooperativa.motoboy.app-merged_res-4:/drawable_ic_monopoly_logo.xml.flat",
+        "source": "com.cooperativa.motoboy.app-main-6:/drawable/ic_monopoly_logo.xml"
+    }
+]

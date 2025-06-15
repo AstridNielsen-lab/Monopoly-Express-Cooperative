@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/corridas_disponiveis"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="?attr/colorPrimary"
+        android:layout_gravity="center"
+        android:layout_margin="16dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAtualizarCorridas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Atualizar Lista"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="?attr/colorSecondary" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCorridas"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp" />
+
+    <TextView
+        android:id="@+id/tvNenhumaCorrida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nenhuma_corrida"
+        android:textSize="16sp"
+        android:textColor="#666666"
+        android:layout_gravity="center"
+        android:layout_margin="32dp"
+        android:visibility="gone" />
+
+</LinearLayout>
+
