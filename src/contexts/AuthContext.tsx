@@ -6,6 +6,7 @@ interface AuthContextType {
   login: (email: string, password: string, userType: 'user' | 'motoboy' | 'admin') => Promise<void>;
   logout: () => void;
   register: (email: string, password: string, name: string, phone: string, userType: 'user' | 'motoboy') => Promise<void>;
+  checkSubscription: () => Promise<void>;
   isLoading: boolean;
 }
 
@@ -75,8 +76,43 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.removeItem('monopoly_express_user');
   };
 
+  const checkSubscriptionStatus = async (userToCheck: AuthUser) => {
+    try {
+      const response = await fetch('/api/subscription/check', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: userToCheck.email })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const subscription = data.subscription;
+        
+        const updatedUser: AuthUser = {
+          ...userToCheck,
+          isPremium: subscription?.isActive || false,
+          subscriptionId: subscription?.subscriptionId,
+          subscriptionStatus: subscription?.status || 'inactive'
+        };
+        
+        setUser(updatedUser);
+        localStorage.setItem('monopoly_express_user', JSON.stringify(updatedUser));
+      }
+    } catch (error) {
+      console.error('Erro ao verificar status de assinatura:', error);
+    }
+  };
+
+  const checkSubscription = async () => {
+    if (user) {
+      await checkSubscriptionStatus(user);
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ user, login, logout, register, isLoading }}>
+    <AuthContext.Provider value={{ user, login, logout, register, checkSubscription, isLoading }}>
       {children}
     </AuthContext.Provider>
   );

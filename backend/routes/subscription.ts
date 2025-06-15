@@ -35,7 +35,7 @@ class MockMercadoPagoService {
       isActive: activeUsers.includes(email),
       subscriptionId: activeUsers.includes(email) ? 'mock_subscription_123' : undefined,
       status: activeUsers.includes(email) ? 'authorized' : 'inactive',
-      amount: activeUsers.includes(email) ? 19.99 : undefined,
+      amount: activeUsers.includes(email) ? 19.90 : undefined,
       payerEmail: email
     };
   }
@@ -52,7 +52,7 @@ class MockMercadoPagoService {
         id: 'mock_sub_1',
         payer_email: 'admin@monopolyexpress.com',
         status: 'authorized',
-        auto_recurring: { transaction_amount: 19.99 },
+        auto_recurring: { transaction_amount: 19.90 },
         next_payment_date: '2025-07-15'
       }
     ];
@@ -78,7 +78,7 @@ class MockMercadoPagoService {
       id: subscriptionId,
       status: 'authorized',
       next_payment_date: '2025-07-15',
-      auto_recurring: { transaction_amount: 19.99 }
+      auto_recurring: { transaction_amount: 19.90 }
     };
   }
 }

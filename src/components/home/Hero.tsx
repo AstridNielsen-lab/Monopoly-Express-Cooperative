@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../ui/Button';
+import SubscriptionButton from '../ui/SubscriptionButton';
 
 const Hero: React.FC = () => {
   return (
@@ -35,22 +36,32 @@ const Hero: React.FC = () => {
               Unidos somos imbatíveis. Quem move a cidade, agora decide o rumo.
             </p>
             
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <Button 
-                to="/seja-membro" 
-                variant="primary" 
-                size="lg"
-              >
-                Faça parte da revolução
-              </Button>
+            <div className="space-y-6">
+              {/* Botão de Assinatura Premium */}
+              <div className="max-w-md">
+                <SubscriptionButton 
+                  variant="primary"
+                  size="lg"
+                />
+              </div>
               
-              <Button 
-                href="#app" 
-                variant="outline" 
-                size="lg"
-              >
-                Baixar App
-              </Button>
+              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                <Button 
+                  to="/seja-membro" 
+                  variant="outline" 
+                  size="lg"
+                >
+                  Faça parte da revolução
+                </Button>
+                
+                <Button 
+                  href="#app" 
+                  variant="outline" 
+                  size="lg"
+                >
+                  Baixar App
+                </Button>
+              </div>
             </div>
           </motion.div>
           

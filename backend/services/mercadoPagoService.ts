@@ -112,7 +112,7 @@ export class MercadoPagoService {
         auto_recurring: {
           frequency: 1,
           frequency_type: 'months',
-          transaction_amount: 19.99,
+          transaction_amount: 19.90,
           currency_id: 'BRL'
         },
         payer_email: data.payerEmail,
@@ -194,9 +194,9 @@ export class MercadoPagoService {
    * Verificar se a assinatura é do plano Monopoly Express
    */
   private isMonopolyExpressSubscription(subscription: any): boolean {
-    // Verificar por valor (R$ 19,99)
+    // Verificar por valor (R$ 19,90)
     const amount = subscription.auto_recurring?.transaction_amount;
-    if (amount === 19.99) {
+    if (amount === 19.90) {
       return true;
     }
 

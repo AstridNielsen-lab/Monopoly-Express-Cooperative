@@ -13,6 +13,7 @@ import HowItWorks from './pages/HowItWorks';
 import Membership from './pages/Membership';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import SubscriptionSuccess from './pages/SubscriptionSuccess';
 
 // Pages - Auth
 import Login from './pages/Login';
@@ -87,6 +88,7 @@ function AppContent() {
             <Route path="seja-membro" element={<Membership />} />
             <Route path="blog" element={<Blog />} />
             <Route path="blog/:id" element={<BlogPost />} />
+            <Route path="subscription/success" element={<SubscriptionSuccess />} />
           </Route>
           
           {/* Auth Routes */}

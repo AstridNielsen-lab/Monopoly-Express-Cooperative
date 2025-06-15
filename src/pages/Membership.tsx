@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 import SectionHeading from '../components/ui/SectionHeading';
 import Button from '../components/ui/Button';
+import SubscriptionButton from '../components/ui/SubscriptionButton';
 
 const Membership: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -177,21 +178,32 @@ Mensagem: ${formData.message || 'Não informada'}
                 </div>
               </div>
               
-              <div className="bg-primary/10 p-6 rounded-xl border border-primary/20">
-                <div className="flex items-center mb-4">
-                  <MessageCircle size={24} className="text-primary mr-2" />
-                  <h4 className="text-lg font-bold text-white">Prefere conversar pelo WhatsApp?</h4>
+              <div className="space-y-6">
+                {/* Botão de Assinatura Premium */}
+                <div className="bg-gradient-to-r from-accent/20 to-primary/20 p-6 rounded-xl border border-accent/30">
+                  <SubscriptionButton 
+                    showFeatures={true}
+                    variant="primary"
+                    size="lg"
+                  />
                 </div>
-                <p className="text-gray-300 mb-4">
-                  Se você tem dúvidas ou prefere um atendimento mais personalizado, fale diretamente com um dos nossos coordenadores.
-                </p>
-                <Button 
-                  href="https://wa.me/5511970603441?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20Monopoly%20Express" 
-                  variant="primary"
-                  className="w-full sm:w-auto"
-                >
-                  Falar pelo WhatsApp
-                </Button>
+
+                <div className="bg-primary/10 p-6 rounded-xl border border-primary/20">
+                  <div className="flex items-center mb-4">
+                    <MessageCircle size={24} className="text-primary mr-2" />
+                    <h4 className="text-lg font-bold text-white">Prefere conversar pelo WhatsApp?</h4>
+                  </div>
+                  <p className="text-gray-300 mb-4">
+                    Se você tem dúvidas ou prefere um atendimento mais personalizado, fale diretamente com um dos nossos coordenadores.
+                  </p>
+                  <Button 
+                    href="https://wa.me/5511970603441?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20Monopoly%20Express" 
+                    variant="primary"
+                    className="w-full sm:w-auto"
+                  >
+                    Falar pelo WhatsApp
+                  </Button>
+                </div>
               </div>
             </motion.div>
             

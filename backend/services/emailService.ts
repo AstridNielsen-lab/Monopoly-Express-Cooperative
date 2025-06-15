@@ -18,8 +18,8 @@ const emailConfig: EmailConfig = {
   port: parseInt(process.env.SMTP_PORT || '587'),
   secure: false, // true para 465, false para outras portas
   auth: {
-    user: process.env.SMTP_USER || 'seu-email@gmail.com',
-    pass: process.env.SMTP_PASSWORD || 'sua-senha-app'
+    user: process.env.SMTP_USER || 'juliocamposmachado@gmail.com',
+    pass: process.env.SMTP_PASS || 'rwtozztiprpwjxcok'
   }
 };
 
