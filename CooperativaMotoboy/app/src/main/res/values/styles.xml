@@ -2,13 +2,14 @@
 <resources>
     <!-- Base application theme -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="colorPrimary">@color/monopoly_primary</item>
-        <item name="colorPrimaryVariant">@color/monopoly_primary_dark</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorSecondary">@color/monopoly_accent</item>
-        <item name="colorSecondaryVariant">@color/monopoly_accent_dark</item>
-        <item name="colorOnSecondary">@color/monopoly_secondary</item>
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="colorPrimary">@color/primary_black</item>
+        <item name="colorPrimaryVariant">@color/primary_black_dark</item>
+        <item name="colorOnPrimary">@color/accent_gold</item>
+        <item name="colorSecondary">@color/accent_gold</item>
+        <item name="colorSecondaryVariant">@color/accent_gold_dark</item>
+        <item name="colorOnSecondary">@color/primary_black</item>
+        <item name="android:statusBarColor">@color/primary_black</item>
+        <item name="android:windowBackground">@color/secondary_dark</item>
     </style>
 
     <style name="ButtonStyle" parent="Widget.MaterialComponents.Button">
@@ -36,9 +37,9 @@
     
     <!-- Splash Screen Theme -->
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:windowBackground">@color/splash_background</item>
-        <item name="android:statusBarColor">@color/splash_background</item>
-        <item name="android:navigationBarColor">@color/splash_background</item>
+        <item name="android:windowBackground">@color/primary_black</item>
+        <item name="android:statusBarColor">@color/primary_black</item>
+        <item name="android:navigationBarColor">@color/primary_black</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:windowTranslucentStatus">false</item>
         <item name="android:windowTranslucentNavigation">false</item>

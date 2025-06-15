@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Monopoly Express Color Palette -->
-    <color name="primary_red">#DC2626</color>
-    <color name="primary_red_dark">#B91C1C</color>
-    <color name="secondary_dark">#1F2937</color>
-    <color name="secondary_dark_variant">#111827</color>
-    <color name="accent_gold">#F59E0B</color>
-    <color name="accent_gold_dark">#D97706</color>
+    <!-- Monopoly Express Color Palette - Black & Gold Theme -->
+    <color name="primary_black">#000000</color>
+    <color name="primary_black_dark">#1A1A1A</color>
+    <color name="secondary_dark">#1A1A1A</color>
+    <color name="secondary_dark_variant">#000000</color>
+    <color name="accent_gold">#FFD700</color>
+    <color name="accent_gold_dark">#B8860B</color>
     
     <!-- Text colors -->
     <color name="text_white">#FFFFFF</color>
@@ -24,16 +24,16 @@
     <color name="error_red">#EF4444</color>
     
     <!-- Traditional Android colors for compatibility -->
-    <color name="colorPrimary">@color/primary_red</color>
-    <color name="colorPrimaryDark">@color/primary_red_dark</color>
+    <color name="colorPrimary">@color/primary_black</color>
+    <color name="colorPrimaryDark">@color/primary_black_dark</color>
     <color name="colorAccent">@color/accent_gold</color>
     
     <!-- Monopoly specific colors referenced in layouts -->
-    <color name="monopoly_primary">#DC2626</color>
-    <color name="monopoly_primary_dark">#B91C1C</color>
-    <color name="monopoly_accent">#F59E0B</color>
-    <color name="monopoly_accent_dark">#D97706</color>
-    <color name="monopoly_secondary">#1F2937</color>
+    <color name="monopoly_primary">#000000</color>
+    <color name="monopoly_primary_dark">#1A1A1A</color>
+    <color name="monopoly_accent">#FFD700</color>
+    <color name="monopoly_accent_dark">#B8860B</color>
+    <color name="monopoly_secondary">#1A1A1A</color>
     <color name="white">#FFFFFF</color>
     
     <!-- Missing colors for layout compatibility -->
@@ -68,5 +68,8 @@
     <color name="text_secondary">#6B7280</color>
     <color name="background_light">#F9FAFB</color>
     <color name="border_color">#E5E7EB</color>
+    
+    <!-- Legacy colors for compatibility -->
+    <color name="primary_red">#FFD700</color>
 </resources>
 

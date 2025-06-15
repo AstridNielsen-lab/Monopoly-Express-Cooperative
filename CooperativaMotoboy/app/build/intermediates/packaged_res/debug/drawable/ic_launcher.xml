@@ -4,16 +4,66 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
+
+    <!-- Background circle - Black -->
     <path
-        android:fillColor="@android:color/holo_blue_light"
-        android:pathData="M54,54m-32,0a32,32 0,1 1,64 0a32,32 0,1 1,-64 0" />
+        android:fillColor="#000000"
+        android:pathData="M54,54m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0" />
+
+    <!-- Gold border ring -->
     <path
-        android:fillColor="@android:color/white"
-        android:pathData="M54,54m-24,0a24,24 0,1 1,48 0a24,24 0,1 1,-48 0" />
+        android:fillColor="#FFD700"
+        android:pathData="M54,54m-42,0a42,42 0,1 1,84 0a42,42 0,1 1,-84 0" />
+
+    <!-- Inner black circle -->
     <path
-        android:fillColor="@android:color/holo_blue_dark"
-        android:pathData="M54,40L54,68M40,54L68,54"
-        android:strokeWidth="3"
-        android:strokeLineCap="round" />
+        android:fillColor="#1A1A1A"
+        android:pathData="M54,54m-38,0a38,38 0,1 1,76 0a38,38 0,1 1,-76 0" />
+
+    <!-- Dollar Sign ($) -->
+    <group
+        android:translateX="54"
+        android:translateY="54">
+        
+        <!-- Vertical line of $ -->
+        <path
+            android:fillColor="#FFD700"
+            android:pathData="M-2,-25 L2,-25 L2,25 L-2,25 Z" />
+        
+        <!-- Top S curve -->
+        <path
+            android:fillColor="#FFD700"
+            android:pathData="M-15,-18 Q-15,-22 -10,-22 L10,-22 Q15,-22 15,-18 Q15,-14 10,-14 L-5,-14 Q-10,-14 -10,-10 Q-10,-6 -5,-6 L15,-6 L15,-2 L-5,-2 Q-15,-2 -15,-10 Q-15,-14 -10,-14" />
+        
+        <!-- Bottom S curve -->
+        <path
+            android:fillColor="#FFD700"
+            android:pathData="M15,18 Q15,22 10,22 L-10,22 Q-15,22 -15,18 Q-15,14 -10,14 L5,14 Q10,14 10,10 Q10,6 5,6 L-15,6 L-15,2 L5,2 Q15,2 15,10 Q15,14 10,14" />
+            
+    </group>
+
+    <!-- Decorative corner elements -->
+    <group
+        android:translateX="54"
+        android:translateY="54">
+        
+        <!-- Corner accents -->
+        <path
+            android:fillColor="#B8860B"
+            android:pathData="M-32,-32m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" />
+        
+        <path
+            android:fillColor="#B8860B"
+            android:pathData="M32,-32m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" />
+        
+        <path
+            android:fillColor="#B8860B"
+            android:pathData="M-32,32m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" />
+        
+        <path
+            android:fillColor="#B8860B"
+            android:pathData="M32,32m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" />
+    </group>
+
 </vector>
 

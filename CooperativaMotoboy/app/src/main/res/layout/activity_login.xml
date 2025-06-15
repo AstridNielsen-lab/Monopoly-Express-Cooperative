@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_light_gray"
+    android:background="@color/secondary_dark"
     android:fillViewport="true">
 
     <LinearLayout
@@ -24,7 +24,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginBottom="16dp"
-                android:src="@drawable/ic_monopoly_logo"
+                android:src="@drawable/ic_launcher"
                 android:contentDescription="@string/app_logo" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -34,7 +34,7 @@
                 android:text="@string/login_title"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:textColor="@color/text_dark"
+                android:textColor="@color/accent_gold"
                 android:gravity="center" />
 
         </LinearLayout>
@@ -93,7 +93,7 @@
                 android:text="@string/login_button"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:backgroundTint="@color/primary_red" />
+                app:backgroundTint="@color/accent_gold" />
 
             <!-- Switch to Register -->
             <com.google.android.material.button.MaterialButton
@@ -102,7 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/no_account"
-                android:textColor="@color/primary_red" />
+                android:textColor="@color/accent_gold" />
 
         </LinearLayout>
 
@@ -242,7 +242,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/have_account"
-                android:textColor="@color/primary_red" />
+                android:textColor="@color/accent_gold" />
 
         </LinearLayout>
 

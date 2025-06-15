@@ -33,9 +33,10 @@ color monopoly_accent_dark
 color monopoly_primary
 color monopoly_primary_dark
 color monopoly_secondary
+color primary_black
+color primary_black_dark
 color primary_color
 color primary_red
-color primary_red_dark
 color secondary_dark
 color secondary_dark_variant
 color splash_accent_color
