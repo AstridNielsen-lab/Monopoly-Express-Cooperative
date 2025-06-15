@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import crypto from 'crypto';
 import { db } from '../database/setup.js';
 import { EmailService } from '../services/emailService.js';
+import MercadoPagoService from '../services/mercadoPagoService.js';
 
 const router = express.Router();
 const emailService = EmailService.getInstance();
@@ -244,6 +245,42 @@ router.post('/login/user', async (req, res) => {
       return res.status(401).json({ error: 'Email ou senha incorretos' });
     }
     
+    // Verificar assinatura no Mercado Pago (apenas para usuários não-admin)
+    let subscriptionInfo = null;
+    if (user.role !== 'admin') {
+      try {
+        const mpService = MercadoPagoService.getInstance();
+        const subscriptionStatus = await mpService.checkUserSubscription(email);
+        
+        // Atualizar status de assinatura no banco local
+        const updateStmt = db.prepare(`
+          UPDATE users 
+          SET 
+            is_premium = ?,
+            subscription_id = ?,
+            subscription_status = ?,
+            subscription_end_date = ?,
+            updated_at = CURRENT_TIMESTAMP
+          WHERE id = ?
+        `);
+        
+        updateStmt.run(
+          subscriptionStatus.isActive,
+          subscriptionStatus.subscriptionId || null,
+          subscriptionStatus.status || 'inactive',
+          subscriptionStatus.nextBillingDate || null,
+          user.id
+        );
+        
+        subscriptionInfo = subscriptionStatus;
+        console.log(`🔍 Assinatura verificada para ${email}:`, subscriptionStatus.isActive ? 'ATIVA' : 'INATIVA');
+        
+      } catch (error) {
+        console.warn('⚠️ Erro ao verificar assinatura durante login:', error);
+        // Não bloquear login por erro na verificação de assinatura
+      }
+    }
+    
     // Retornar dados do usuário (sem senha)
     const { password_hash, verification_token, ...userData } = user;
     
@@ -251,7 +288,8 @@ router.post('/login/user', async (req, res) => {
       message: 'Login realizado com sucesso',
       user: {
         ...userData,
-        user_type: 'user'
+        user_type: 'user',
+        subscription: subscriptionInfo
       }
     });
     

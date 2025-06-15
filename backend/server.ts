@@ -8,6 +8,7 @@ import { authRoutes } from './routes/auth.js';
 import { motoboyRoutes } from './routes/motoboy.js';
 import { deliveryRoutes } from './routes/delivery.js';
 import { userRoutes } from './routes/user.js';
+import { subscriptionRoutes } from './routes/subscription.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -38,6 +39,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/motoboy', motoboyRoutes);
 app.use('/api/delivery', deliveryRoutes);
 app.use('/api/user', userRoutes);
+app.use('/api/subscription', subscriptionRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {

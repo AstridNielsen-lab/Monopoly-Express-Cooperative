@@ -38,6 +38,11 @@ function createTables() {
       password_hash TEXT NOT NULL,
       email_verified BOOLEAN DEFAULT FALSE,
       verification_token TEXT,
+      role TEXT DEFAULT 'user',
+      is_premium BOOLEAN DEFAULT FALSE,
+      subscription_id TEXT,
+      subscription_status TEXT,
+      subscription_end_date DATETIME,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )
