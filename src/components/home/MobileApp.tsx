@@ -84,15 +84,15 @@ const MobileApp: React.FC = () => {
                 className="pt-8"
               >
                 <a
-                  href="/downloads/MonopolyExpress-v4.1.apk"
-                  download="MonopolyExpress-v4.1.apk"
+                  href="/downloads/CooperativaMotoboy-v5.1-black-gold.apk"
+                  download="CooperativaMotoboy-v5.1-black-gold.apk"
                   className="inline-flex items-center px-8 py-4 bg-accent hover:bg-accent-dark text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                 >
                   <Download className="w-5 h-5 mr-3" />
-                  Baixar APK v4.1 (5.6MB)
+                  Baixar APK v5.1 Black & Gold (6.9MB)
                 </a>
                 <p className="text-sm text-gray-400 mt-3">
-                  Versão 4.1 (Mais Recente) • Compatível com Android 7.0+ • Download Direto
+                  Versão 5.1 Black & Gold • Design Preto e Dourado • Logo Cifrão Dourado • Funcionalidades Completas
                 </p>
               </motion.div>
             </div>
