@@ -193,13 +193,14 @@ Monopoly Express é uma plataforma completa de logística que conecta clientes e
 ## 📱 Aplicativo Mobile
 
 ### Download do APK
-**[📥 Baixar APK - Versão 2.0 (5.3MB)](public/downloads/MonopolyExpress-v2.0.apk)**
+**[📥 Baixar APK - Versão 4.1 (5.6MB)](/downloads/MonopolyExpress-v4.1.apk)**
 
 - **Compatibilidade:** Android 7.0+ (API 24)
 - **Funcionalidades:** Cliente e Motoboy
-- **Tamanho:** 5.3MB
-- **Última atualização:** 14/06/2025
-- **Novidades:** Integração com backend SQLite e sistema de emails
+- **Tamanho:** 5.6MB
+- **Última atualização:** 15/06/2025
+- **Novidades:** Sistema de mapa GPS completo, notificações e avaliações
+- **Download:** Direto do servidor, mais rápido e confiável
 
 ### Como Instalar
 1. Baixe o APK clicando no link acima
