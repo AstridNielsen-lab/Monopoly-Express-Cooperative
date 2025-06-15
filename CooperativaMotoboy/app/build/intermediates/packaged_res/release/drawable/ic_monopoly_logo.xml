@@ -5,60 +5,119 @@
     android:viewportWidth="150"
     android:viewportHeight="150">
     
-    <!-- Background Circle -->
+    <!-- Background Circle with Gradient Effect -->
     <path
-        android:pathData="M75,10 A65,65 0 1,1 75,140 A65,65 0 1,1 75,10 Z"
+        android:pathData="M75,5 A70,70 0 1,1 75,145 A70,70 0 1,1 75,5 Z"
         android:fillColor="@color/logo_background"
         android:strokeColor="@color/logo_border"
-        android:strokeWidth="3" />
+        android:strokeWidth="4" />
     
-    <!-- Motorcycle Icon -->
-    <group android:translateX="75" android:translateY="75">
+    <!-- Inner Circle for Modern Look -->
+    <path
+        android:pathData="M75,15 A60,60 0 1,1 75,135 A60,60 0 1,1 75,15 Z"
+        android:fillColor="@color/logo_inner_bg"
+        android:strokeColor="@color/logo_accent_ring"
+        android:strokeWidth="2" />
+    
+    <!-- Modern Motorcycle Icon -->
+    <group android:translateX="75" android:translateY="65">
         
-        <!-- Motorcycle Body -->
+        <!-- Enhanced Motorcycle Body -->
         <path
-            android:pathData="M-25,-10 L15,-10 L20,-5 L20,5 L15,10 L-25,10 L-30,5 L-30,-5 Z"
+            android:pathData="M-30,-8 L20,-8 C23,-8 25,-6 25,-3 L25,3 C25,6 23,8 20,8 L-30,8 C-33,8 -35,6 -35,3 L-35,-3 C-35,-6 -33,-8 -30,-8 Z"
             android:fillColor="@color/logo_accent" />
         
-        <!-- Front Wheel -->
+        <!-- Motorcycle Details -->
         <path
-            android:pathData="M23,15 A8,8 0 1,1 7,15 A8,8 0 1,1 23,15 Z"
+            android:pathData="M-20,-5 L15,-5 L15,-2 L-20,-2 Z"
+            android:fillColor="@color/logo_detail" />
+        
+        <!-- Front Wheel - Modern Design -->
+        <path
+            android:pathData="M28,18 A10,10 0 1,1 8,18 A10,10 0 1,1 28,18 Z"
             android:fillColor="@color/logo_wheel"
             android:strokeColor="@color/logo_border"
-            android:strokeWidth="2" />
+            android:strokeWidth="3" />
         
-        <!-- Rear Wheel -->
+        <!-- Front Wheel Inner -->
         <path
-            android:pathData="M-12,15 A8,8 0 1,1 -28,15 A8,8 0 1,1 -12,15 Z"
+            android:pathData="M24,18 A6,6 0 1,1 12,18 A6,6 0 1,1 24,18 Z"
+            android:fillColor="@color/logo_wheel_inner" />
+        
+        <!-- Rear Wheel - Modern Design -->
+        <path
+            android:pathData="M-15,18 A10,10 0 1,1 -35,18 A10,10 0 1,1 -15,18 Z"
             android:fillColor="@color/logo_wheel"
             android:strokeColor="@color/logo_border"
-            android:strokeWidth="2" />
+            android:strokeWidth="3" />
         
-        <!-- Handlebar -->
+        <!-- Rear Wheel Inner -->
         <path
-            android:pathData="M12,-15 L18,-15 M15,-15 L15,-10"
+            android:pathData="M-19,18 A6,6 0 1,1 -31,18 A6,6 0 1,1 -19,18 Z"
+            android:fillColor="@color/logo_wheel_inner" />
+        
+        <!-- Enhanced Handlebar -->
+        <path
+            android:pathData="M15,-18 L25,-18 M20,-18 L20,-8"
             android:strokeColor="@color/logo_accent"
-            android:strokeWidth="3"
+            android:strokeWidth="4"
             android:strokeLineCap="round" />
         
-        <!-- Speed Lines -->
+        <!-- Dynamic Speed Lines -->
         <path
-            android:pathData="M25,-20 L35,-15 M25,-10 L35,-5 M25,0 L35,5"
+            android:pathData="M30,-25 L42,-18 M30,-15 L42,-8 M30,-5 L42,2 M30,5 L42,12"
             android:strokeColor="@color/logo_speed"
-            android:strokeWidth="2"
+            android:strokeWidth="3"
             android:strokeLineCap="round" />
             
     </group>
     
-    <!-- Letter M -->
-    <path
-        android:pathData="M40,120 L40,130 L45,130 L45,125 L50,130 L55,125 L55,130 L60,130 L60,120 L55,120 L50,125 L45,120 Z"
-        android:fillColor="@color/logo_text" />
+    <!-- Modern Typography - MONOPOLY -->
+    <group android:translateX="75" android:translateY="105">
+        
+        <!-- Letter M -->
+        <path
+            android:pathData="M-35,10 L-35,25 L-30,25 L-30,18 L-25,25 L-20,18 L-20,25 L-15,25 L-15,10 L-20,10 L-25,18 L-30,10 Z"
+            android:fillColor="@color/logo_text" />
+        
+        <!-- Letter O -->
+        <path
+            android:pathData="M-10,10 C-13,10 -15,12 -15,15 L-15,20 C-15,23 -13,25 -10,25 L-5,25 C-2,25 0,23 0,20 L0,15 C0,12 -2,10 -5,10 Z M-10,15 L-5,15 L-5,20 L-10,20 Z"
+            android:fillColor="@color/logo_text" />
+        
+        <!-- Letter N -->
+        <path
+            android:pathData="M5,10 L5,25 L10,25 L10,18 L15,25 L20,25 L20,10 L15,10 L15,18 L10,10 Z"
+            android:fillColor="@color/logo_text" />
+        
+        <!-- Letter O -->
+        <path
+            android:pathData="M25,10 C22,10 20,12 20,15 L20,20 C20,23 22,25 25,25 L30,25 C33,25 35,23 35,20 L35,15 C35,12 33,10 30,10 Z M25,15 L30,15 L30,20 L25,20 Z"
+            android:fillColor="@color/logo_text" />
+            
+    </group>
     
-    <!-- Letter E -->
-    <path
-        android:pathData="M70,120 L70,130 L85,130 L85,127 L73,127 L73,125 L83,125 L83,122 L73,122 L73,120 L85,120 L85,117 L70,117 Z"
-        android:fillColor="@color/logo_text" />
+    <!-- EXPRESS Text -->
+    <group android:translateX="75" android:translateY="125">
+        
+        <!-- Smaller EXPRESS text -->
+        <path
+            android:pathData="M-25,5 L-25,15 L-15,15 L-15,12 L-22,12 L-22,10 L-16,10 L-16,8 L-22,8 L-22,7 L-15,7 L-15,5 Z"
+            android:fillColor="@color/logo_subtext" />
+        
+        <path
+            android:pathData="M-12,5 L-12,8 L-8,5 L-5,5 L-9,8 L-5,11 L-8,11 L-12,8 L-12,15 L-15,15 L-15,5 Z"
+            android:fillColor="@color/logo_subtext" />
+        
+        <path
+            android:pathData="M-2,5 L-2,15 L1,15 L1,10 L4,15 L7,15 L7,5 L4,5 L4,10 L1,5 Z"
+            android:fillColor="@color/logo_subtext" />
+        
+        <path
+            android:pathData="M10,5 L10,15 L20,15 L20,12 L13,12 L13,10 L19,10 L19,8 L13,8 L13,7 L20,7 L20,5 Z"
+            android:fillColor="@color/logo_subtext" />
+            
+    </group>
     
 </vector>
 

@@ -46,13 +46,18 @@
     <color name="splash_subtitle_color">#9CA3AF</color>
     <color name="splash_accent_color">#F59E0B</color>
     
-    <!-- Logo Colors -->
+    <!-- Logo Colors - Modern Design -->
     <color name="logo_background">#DC2626</color>
     <color name="logo_border">#B91C1C</color>
+    <color name="logo_inner_bg">#EF4444</color>
+    <color name="logo_accent_ring">#FBBF24</color>
     <color name="logo_accent">#FFFFFF</color>
+    <color name="logo_detail">#E5E7EB</color>
     <color name="logo_wheel">#374151</color>
+    <color name="logo_wheel_inner">#6B7280</color>
     <color name="logo_speed">#F59E0B</color>
     <color name="logo_text">#FFFFFF</color>
+    <color name="logo_subtext">#D1D5DB</color>
     
     <!-- Mapa do Motoboy Colors -->
     <color name="primary_color">#DC2626</color>

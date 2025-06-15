@@ -18,11 +18,16 @@ color error_color
 color error_red
 color light_gray
 color logo_accent
+color logo_accent_ring
 color logo_background
 color logo_border
+color logo_detail
+color logo_inner_bg
 color logo_speed
+color logo_subtext
 color logo_text
 color logo_wheel
+color logo_wheel_inner
 color monopoly_accent
 color monopoly_accent_dark
 color monopoly_primary

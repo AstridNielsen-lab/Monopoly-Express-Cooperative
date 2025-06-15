@@ -1448,11 +1448,16 @@ color highlighted_text_material_dark
 color highlighted_text_material_light
 color light_gray
 color logo_accent
+color logo_accent_ring
 color logo_background
 color logo_border
+color logo_detail
+color logo_inner_bg
 color logo_speed
+color logo_subtext
 color logo_text
 color logo_wheel
+color logo_wheel_inner
 color m3_appbar_overlay_color
 color m3_assist_chip_icon_tint_color
 color m3_assist_chip_stroke_color
