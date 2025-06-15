@@ -4,6 +4,7 @@ import { useGeolocation } from '../hooks/useGeolocation';
 import { DeliveryRequest } from '../types';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
+import WazeIntegration from '../components/WazeIntegration';
 import { MapPin, Clock, Package, DollarSign, Navigation, User, LogOut } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -347,9 +348,39 @@ const UserApp: React.FC = () => {
                       <div className="text-lg font-semibold text-gray-900">
                         R$ {delivery.price.toFixed(2)}
                       </div>
-                      <div className="text-sm text-gray-500">
+                      <div className="text-sm text-gray-500 mb-3">
                         {delivery.distance.toFixed(1)} km
                       </div>
+                      
+                      {/* Botões Waze para Rastreamento */}
+                      {(delivery.status === 'accepted' || delivery.status === 'in_progress') && (
+                        <div className="space-y-2">
+                          <WazeIntegration
+                            latitude={delivery.pickup_latitude}
+                            longitude={delivery.pickup_longitude}
+                            address={delivery.pickup_address}
+                            variant="show"
+                            buttonText="Ver Coleta"
+                            size="sm"
+                            className="w-full"
+                          />
+                          <WazeIntegration
+                            latitude={delivery.delivery_latitude}
+                            longitude={delivery.delivery_longitude}
+                            address={delivery.delivery_address}
+                            variant="show"
+                            buttonText="Ver Entrega"
+                            size="sm"
+                            className="w-full"
+                          />
+                        </div>
+                      )}
+                      
+                      {delivery.status === 'pending' && (
+                        <div className="text-xs text-gray-400 mt-2">
+                          Aguardando motoboy
+                        </div>
+                      )}
                     </div>
                   </div>
                 </Card>

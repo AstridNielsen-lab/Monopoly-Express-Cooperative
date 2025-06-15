@@ -1,19 +1,8 @@
 import express from 'express';
 import { db } from '../database/setup.js';
-// Temporariamente desabilitado devido a problemas de importação
-// import MercadoPagoService, { SubscriptionStatus } from '../services/mercadoPagoService.js';
+import MercadoPagoService, { SubscriptionStatus } from '../services/mercadoPagoService.js';
 
-// Interface temporária
-interface SubscriptionStatus {
-  isActive: boolean;
-  subscriptionId?: string;
-  planId?: string;
-  status?: string;
-  nextBillingDate?: string;
-  amount?: number;
-  payerEmail?: string;
-  error?: string;
-}
+// Interface já importada do serviço
 
 // Mock do serviço para teste inicial
 class MockMercadoPagoService {
@@ -84,7 +73,10 @@ class MockMercadoPagoService {
 }
 
 const router = express.Router();
-const mpService = MockMercadoPagoService.getInstance();
+// Usar serviço real em desenvolvimento/produção
+const mpService = MercadoPagoService.getInstance();
+// Para teste local, descomente a linha abaixo:
+// const mpService = MockMercadoPagoService.getInstance();
 
 /**
  * Verificar status de assinatura de um usuário

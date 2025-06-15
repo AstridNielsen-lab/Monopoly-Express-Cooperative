@@ -4,6 +4,8 @@ import { useGeolocation, calculateDistance } from '../hooks/useGeolocation';
 import { DeliveryRequest } from '../types';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
+import WazeIntegration from '../components/WazeIntegration';
+import WazeDeliveryRoute from '../components/WazeDeliveryRoute';
 import { MapPin, Navigation, Truck, DollarSign, Clock, Star, LogOut, RefreshCw } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -357,7 +359,48 @@ const MotoboyApp: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex space-x-3 mt-4">
+            {/* Rota Completa no Waze */}
+            {activeDelivery.status === 'accepted' && (
+              <div className="mt-4">
+                <WazeDeliveryRoute
+                  pickupAddress={activeDelivery.pickup_address}
+                  pickupLatitude={activeDelivery.pickup_latitude}
+                  pickupLongitude={activeDelivery.pickup_longitude}
+                  deliveryAddress={activeDelivery.delivery_address}
+                  deliveryLatitude={activeDelivery.delivery_latitude}
+                  deliveryLongitude={activeDelivery.delivery_longitude}
+                  description={activeDelivery.description}
+                  price={activeDelivery.price}
+                  currentLocation={location || undefined}
+                />
+              </div>
+            )}
+            
+            {/* Navegação Individual quando em andamento */}
+            {activeDelivery.status === 'in_progress' && (
+              <div className="flex space-x-2 mt-4">
+                <WazeIntegration
+                  latitude={activeDelivery.pickup_latitude}
+                  longitude={activeDelivery.pickup_longitude}
+                  address={activeDelivery.pickup_address}
+                  variant="show"
+                  buttonText="Ver Coleta"
+                  size="sm"
+                  className="flex-1"
+                />
+                <WazeIntegration
+                  latitude={activeDelivery.delivery_latitude}
+                  longitude={activeDelivery.delivery_longitude}
+                  address={activeDelivery.delivery_address}
+                  variant="navigate"
+                  buttonText="Ir para Entrega"
+                  size="sm"
+                  className="flex-1"
+                />
+              </div>
+            )}
+
+            <div className="flex space-x-3 mt-3">
               {activeDelivery.status === 'accepted' && (
                 <Button onClick={startDelivery} className="flex-1">
                   Iniciar Entrega

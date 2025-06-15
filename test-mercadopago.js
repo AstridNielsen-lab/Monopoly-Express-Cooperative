@@ -1,85 +1,71 @@
-import 'dotenv/config';
-import MercadoPagoService from './backend/services/mercadoPagoService.js';
+// Script de teste para verificar Mercado Pago
+require('dotenv').config();
+const axios = require('axios');
 
 async function testMercadoPago() {
-  console.log('🗺️ TESTE DE INTEGRAÇÃO MERCADO PAGO');
-  console.log('==========================================');
-  console.log('');
+  const accessToken = process.env.MP_ACCESS_TOKEN;
+  const publicKey = process.env.MP_PUBLIC_KEY;
   
-  const mpService = MercadoPagoService.getInstance();
+  console.log('🔧 Testando configuração do Mercado Pago...');
+  console.log('Access Token:', accessToken ? 'Configurado' : 'Não configurado');
+  console.log('Public Key:', publicKey ? 'Configurado' : 'Não configurado');
   
-  // Testar configurações
-  console.log('🔧 Configurações:');
-  console.log('   Public Key:', process.env.MP_PUBLIC_KEY ? '✅ Configurado' : '❌ Não configurado');
-  console.log('   Access Token:', process.env.MP_ACCESS_TOKEN ? '✅ Configurado' : '❌ Não configurado');
-  console.log('   Client ID:', process.env.MP_CLIENT_ID ? '✅ Configurado' : '❌ Não configurado');
-  console.log('   Client Secret:', process.env.MP_CLIENT_SECRET ? '✅ Configurado' : '❌ Não configurado');
-  console.log('');
-  
-  // Testar conexão
-  console.log('🔌 Testando conexão com Mercado Pago...');
-  const isConnected = await mpService.testConnection();
-  
-  if (!isConnected) {
-    console.log('❌ Falha na conexão com Mercado Pago');
-    console.log('📝 Verifique suas credenciais no arquivo .env');
+  if (!accessToken) {
+    console.error('❌ Access Token não configurado!');
     return;
   }
   
-  console.log('');
-  
-  // Listar assinaturas ativas
-  console.log('📊 Listando assinaturas ativas...');
-  const activeSubscriptions = await mpService.listActiveSubscriptions();
-  
-  console.log(`   Total de assinaturas encontradas: ${activeSubscriptions.length}`);
-  
-  if (activeSubscriptions.length > 0) {
-    console.log('   Assinaturas ativas:');
-    activeSubscriptions.forEach((sub, index) => {
-      console.log(`   ${index + 1}. ID: ${sub.id}`);
-      console.log(`      Email: ${sub.payer_email}`);
-      console.log(`      Status: ${sub.status}`);
-      console.log(`      Valor: R$ ${sub.auto_recurring?.transaction_amount || 'N/A'}`);
-      console.log(`      Próximo pagamento: ${sub.next_payment_date || 'N/A'}`);
-      console.log('');
+  try {
+    // Teste 1: Verificar usuário
+    console.log('\n📋 Teste 1: Verificando usuário...');
+    const userResponse = await axios.get('https://api.mercadopago.com/users/me', {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json'
+      }
     });
-  } else {
-    console.log('   📄 Nenhuma assinatura ativa encontrada');
+    console.log('✅ Usuário autenticado:', userResponse.data.email);
+    
+    // Teste 2: Criar assinatura de teste
+    console.log('\n🆕 Teste 2: Criando assinatura de teste...');
+    const subscriptionData = {
+      reason: 'Teste Monopoly Express - Plano Premium',
+      auto_recurring: {
+        frequency: 1,
+        frequency_type: 'months',
+        transaction_amount: 19.90,
+        currency_id: 'BRL'
+      },
+      payer_email: 'teste@monopolyexpress.com',
+      back_url: 'http://localhost:5173/subscription/success',
+      status: 'pending'
+    };
+    
+    const subscriptionResponse = await axios.post(
+      'https://api.mercadopago.com/preapproval',
+      subscriptionData,
+      {
+        headers: {
+          'Authorization': `Bearer ${accessToken}`,
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+    
+    console.log('✅ Assinatura criada com sucesso!');
+    console.log('📍 ID:', subscriptionResponse.data.id);
+    console.log('🔗 Link de pagamento:', subscriptionResponse.data.init_point);
+    console.log('📄 Status:', subscriptionResponse.data.status);
+    
+    // Salvar o link em um arquivo para fácil acesso
+    const fs = require('fs');
+    fs.writeFileSync('link-pagamento.txt', subscriptionResponse.data.init_point);
+    console.log('💾 Link salvo em: link-pagamento.txt');
+    
+  } catch (error) {
+    console.error('❌ Erro:', error.response?.data || error.message);
   }
-  
-  console.log('');
-  
-  // Testar verificação de email específico
-  const testEmail = 'admin@monopolyexpress.com';
-  console.log(`🔍 Testando verificação para email: ${testEmail}`);
-  
-  const subscriptionStatus = await mpService.checkUserSubscription(testEmail);
-  
-  console.log('   Resultado:');
-  console.log('   - Assinatura ativa:', subscriptionStatus.isActive ? '✅ Sim' : '❌ Não');
-  if (subscriptionStatus.subscriptionId) {
-    console.log('   - ID da assinatura:', subscriptionStatus.subscriptionId);
-    console.log('   - Status:', subscriptionStatus.status);
-    console.log('   - Valor:', subscriptionStatus.amount ? `R$ ${subscriptionStatus.amount}` : 'N/A');
-    console.log('   - Próximo pagamento:', subscriptionStatus.nextBillingDate || 'N/A');
-  }
-  if (subscriptionStatus.error) {
-    console.log('   - Erro:', subscriptionStatus.error);
-  }
-  
-  console.log('');
-  console.log('✅ Teste concluído!');
-  console.log('');
-  console.log('📝 Próximos passos:');
-  console.log('   1. Configurar webhook no Mercado Pago (opcional)');
-  console.log('   2. Testar criacao de assinaturas via API');
-  console.log('   3. Integrar verificação de assinatura no login');
 }
 
-// Executar teste
-testMercadoPago().catch(error => {
-  console.error('❌ Erro durante o teste:', error);
-  process.exit(1);
-});
+testMercadoPago();
 

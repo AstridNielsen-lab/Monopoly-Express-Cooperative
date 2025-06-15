@@ -30,12 +30,19 @@ export interface CreateSubscriptionData {
 export class MercadoPagoService {
   private static instance: MercadoPagoService;
   private accessToken: string;
+  private publicKey: string;
   private baseUrl = 'https://api.mercadopago.com';
 
   private constructor() {
     this.accessToken = process.env.MP_ACCESS_TOKEN || '';
-    if (!this.accessToken) {
-      console.warn('⚠️ Access Token do Mercado Pago não configurado');
+    this.publicKey = process.env.MP_PUBLIC_KEY || '';
+    
+    if (!this.accessToken || !this.publicKey) {
+      console.warn('⚠️ Credenciais do Mercado Pago não configuradas');
+      console.log('Access Token:', this.accessToken ? 'Configurado' : 'Não configurado');
+      console.log('Public Key:', this.publicKey ? 'Configurado' : 'Não configurado');
+    } else {
+      console.log('✅ Mercado Pago configurado com sucesso');
     }
   }
 
