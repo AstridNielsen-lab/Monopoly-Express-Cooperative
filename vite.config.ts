@@ -7,4 +7,15 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  server: {
+    port: 5173,
+    host: true,
+    proxy: {
+      '/api': {
+        target: 'https://monopoly-express.vercel.app',
+        changeOrigin: true,
+        secure: true,
+      },
+    },
+  },
 });

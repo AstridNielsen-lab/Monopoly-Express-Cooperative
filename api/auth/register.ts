@@ -24,10 +24,14 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const { email, password, name, phone, userType, cpf, cnh, vehicleType, vehiclePlate } = req.body;
+    // Extrair tipo de usuário da URL (user ou motoboy)
+    const { q } = req.query;
+    const userType = Array.isArray(q) ? q[0] : q || 'user';
+    
+    const { email, password, name, phone, cpf, cnh, vehicleType, vehiclePlate } = req.body;
 
-    if (!email || !password || !name || !phone || !userType) {
-      res.status(400).json({ error: 'Dados obrigatórios não fornecidos' });
+    if (!email || !password || !name || !phone) {
+      res.status(400).json({ error: 'Email, senha, nome e telefone são obrigatórios' });
       return;
     }
 

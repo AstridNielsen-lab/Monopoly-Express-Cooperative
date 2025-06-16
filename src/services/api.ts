@@ -2,10 +2,11 @@
 import axios from 'axios';
 
 // Configuração base da API
+// Forçar uso da API do Vercel durante desenvolvimento se localhost não estiver disponível
 const API_BASE_URL = import.meta.env.VITE_API_URL || 
-  (import.meta.env.VITE_ENVIRONMENT === 'production' 
-    ? 'https://monopoly-express.vercel.app/api'
-    : 'http://localhost:3001/api');
+  (import.meta.env.DEV 
+    ? '/api' // Usar proxy do Vite em desenvolvimento
+    : 'https://monopoly-express.vercel.app/api');
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -270,7 +271,7 @@ export const subscriptionService = {
   // Verificar status de assinatura
   async checkSubscription(email: string): Promise<SubscriptionStatus> {
     const response = await api.post('/subscription/check', { email });
-    return response.data.subscription;
+    return response.data;
   },
 
   // Verificar status por ID do usuário
