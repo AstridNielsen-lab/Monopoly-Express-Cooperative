@@ -1,5 +1,4 @@
 {
-  "name": "monopoly-express",
   "version": 2,
   "builds": [
     {
@@ -28,7 +27,7 @@
     }
   ],
   "env": {
-    "VITE_API_URL": "https://monopoly-express.vercel.app/api",
+    "VITE_API_URL": "https://monopoly-express-logistica.vercel.app/api",
     "VITE_APP_NAME": "Monopoly Express",
     "VITE_ENVIRONMENT": "production",
     "NODE_ENV": "production",
@@ -37,11 +36,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "installCommand": "npm install",
-  "functions": {
-    "api/**/*.ts": {
-      "runtime": "nodejs18.x"
-    }
-  }
+  "installCommand": "npm install"
 }
 
