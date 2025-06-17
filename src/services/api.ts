@@ -111,7 +111,7 @@ export const authService = {
     name: string;
     phone: string;
   }): Promise<User> {
-    const response = await api.post('/auth/register/user', data);
+    const response = await api.post('/auth/register-user', data);
     return response.data.user;
   },
 
