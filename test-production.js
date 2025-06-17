@@ -1,7 +1,7 @@
 // Script para testar as novas funcionalidades em produção
 import fetch from 'node-fetch';
 
-const PRODUCTION_URL = 'https://monopoly-express-logistica-e9rft0x0f.vercel.app';
+const PRODUCTION_URL = 'https://monopoly-express-logistica-9rbglxmyy.vercel.app';
 
 async function testProductionEndpoints() {
   console.log('🌐 Testando endpoints de produção...');
