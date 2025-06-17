@@ -1,17 +1,22 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import { getDatabase } from './database';
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
+
   try {
-    // Testar conexão com o banco
-    const db = getDatabase();
-    const result = db.prepare('SELECT 1 as test').get();
-    
     res.status(200).json({
       status: 'OK',
       timestamp: new Date().toISOString(),
-      database: result ? 'Connected' : 'Error',
-      environment: process.env.NODE_ENV || 'development'
+      message: 'Monopoly Express API está funcionando!',
+      environment: process.env.NODE_ENV || 'production',
+      version: '1.0.0'
     });
   } catch (error) {
     console.error('Health check error:', error);
