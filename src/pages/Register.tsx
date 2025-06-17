@@ -13,11 +13,7 @@ const Register: React.FC = () => {
     password: '',
     confirmPassword: '',
     name: '',
-    phone: '',
-    cpf: '',
-    cnh: '',
-    vehicleType: 'moto' as 'moto' | 'carro' | 'bicicleta',
-    vehiclePlate: ''
+    phone: ''
   });
   const [userType, setUserType] = useState<'user' | 'motoboy'>('user');
   const [isLoading, setIsLoading] = useState(false);
