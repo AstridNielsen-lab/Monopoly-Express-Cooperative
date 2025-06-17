@@ -114,8 +114,8 @@ const Register: React.FC = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    required={userType !== 'motoboy'}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 placeholder="Seu nome completo"
               />
             </div>
@@ -130,7 +130,7 @@ const Register: React.FC = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                required
+                required={userType !== 'motoboy'}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 placeholder="seu@email.com"
               />
@@ -146,7 +146,7 @@ const Register: React.FC = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                required
+                required={userType !== 'motoboy'}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 placeholder="(11) 99999-9999"
               />

@@ -83,7 +83,7 @@ router.post('/register/motoboy', async (req, res) => {
     }
     
     // Validações específicas por tipo de veículo
-    if (vehicleType !== 'bicicleta') {
+    if (vehicleType === 'moto' || vehicleType === 'carro') {
       if (!cnh) {
         return res.status(400).json({ error: 'CNH é obrigatória para motocicletas e carros' });
       }

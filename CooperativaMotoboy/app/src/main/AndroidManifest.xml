@@ -32,6 +32,13 @@
             android:exported="false"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait" />
+            
+        <!-- Cadastro Motoboy Activity -->
+        <activity
+            android:name=".CadastroMotoboyActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
         
         <!-- MainActivity (antiga principal) -->
         <activity

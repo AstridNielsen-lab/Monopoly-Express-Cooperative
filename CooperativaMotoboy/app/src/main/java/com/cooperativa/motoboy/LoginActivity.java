@@ -107,6 +107,15 @@ public class LoginActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(v -> performRegister());
         btnSwitchToRegister.setOnClickListener(v -> switchToRegisterMode());
         btnSwitchToLogin.setOnClickListener(v -> switchToLoginMode());
+        
+        // Botão específico para cadastro de motoboy
+        MaterialButton btnCadastroMotoboy = findViewById(R.id.btnCadastroMotoboy);
+        if (btnCadastroMotoboy != null) {
+            btnCadastroMotoboy.setOnClickListener(v -> {
+                Intent intent = new Intent(LoginActivity.this, CadastroMotoboyActivity.class);
+                startActivity(intent);
+            });
+        }
     }
 
     private void switchToRegisterMode() {
@@ -162,6 +171,12 @@ public class LoginActivity extends AppCompatActivity {
         // Verificar se e-mail já existe
         if (dbHelper.emailExists(email)) {
             tilRegisterEmail.setError("Este e-mail já está cadastrado");
+            return;
+        }
+        
+        // Verificar se CPF já existe
+        if (dbHelper.cpfExists(cpf)) {
+            tilRegisterCpf.setError("Este CPF já está cadastrado");
             return;
         }
 

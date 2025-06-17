@@ -46,7 +46,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Criar tabela de usuários
+    // Criar tabela de usuários com campos específicos para motoboy
         String createUsersTable = "CREATE TABLE " + TABLE_USUARIOS + " (" +
                 COL_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COL_USER_NOME + " TEXT NOT NULL, " +
@@ -55,6 +55,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COL_USER_EMAIL + " TEXT UNIQUE NOT NULL, " +
                 COL_USER_SENHA + " TEXT NOT NULL, " +
                 COL_USER_TIPO + " TEXT NOT NULL CHECK(" + COL_USER_TIPO + " IN ('CLIENTE', 'MOTOBOY')), " +
+                "cnh TEXT, " +
+                "tipo_veiculo TEXT, " +
+                "placa_veiculo TEXT, " +
+                "email_verificado INTEGER DEFAULT 0, " +
+                "aprovado INTEGER DEFAULT 0, " +
+                "ativo INTEGER DEFAULT 1, " +
+                "latitude REAL, " +
+                "longitude REAL, " +
                 COL_USER_DATA_CRIACAO + " INTEGER DEFAULT (strftime('%s','now'))" +
                 ")";
         
@@ -104,6 +112,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COL_USER_SENHA, usuario.getSenha());
         values.put(COL_USER_TIPO, usuario.getTipo());
         values.put(COL_USER_DATA_CRIACAO, System.currentTimeMillis());
+        
+        // Campos específicos para motoboy
+        if ("MOTOBOY".equals(usuario.getTipo())) {
+            values.put("cnh", usuario.getCnh());
+            values.put("tipo_veiculo", usuario.getTipoVeiculo());
+            values.put("placa_veiculo", usuario.getPlacaVeiculo());
+        }
+        
+        values.put("email_verificado", usuario.isEmailVerificado() ? 1 : 0);
+        values.put("aprovado", 0); // Sempre começa como não aprovado
+        values.put("ativo", usuario.isAtivo() ? 1 : 0);
+        
+        if (usuario.getLatitude() != 0) {
+            values.put("latitude", usuario.getLatitude());
+        }
+        if (usuario.getLongitude() != 0) {
+            values.put("longitude", usuario.getLongitude());
+        }
         
         try {
             long result = db.insert(TABLE_USUARIOS, null, values);
@@ -159,6 +185,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         } catch (Exception e) {
             Log.e(TAG, "Erro ao verificar e-mail: " + e.getMessage());
+        } finally {
+            db.close();
+        }
+        
+        return exists;
+    }
+    
+    public boolean cpfExists(String cpf) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        boolean exists = false;
+        
+        String query = "SELECT COUNT(*) FROM " + TABLE_USUARIOS + " WHERE " + COL_USER_CPF + " = ?";
+        
+        try (Cursor cursor = db.rawQuery(query, new String[]{cpf})) {
+            if (cursor.moveToFirst()) {
+                exists = cursor.getInt(0) > 0;
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Erro ao verificar CPF: " + e.getMessage());
         } finally {
             db.close();
         }
