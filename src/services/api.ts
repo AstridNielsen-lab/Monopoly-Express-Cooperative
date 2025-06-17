@@ -2,18 +2,17 @@
 import axios from 'axios';
 
 // Configuração base da API
-// Forçar uso da API do Vercel durante desenvolvimento se localhost não estiver disponível
+// Usar sempre o deployment mais recente
 const API_BASE_URL = import.meta.env.VITE_API_URL || 
   (import.meta.env.DEV 
     ? '/api' // Usar proxy do Vite em desenvolvimento
-    : 'https://monopoly-express-logistica.vercel.app/api');
+    : 'https://monopoly-express-logistica-a1wp7w5lj.vercel.app/api');
 
 const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
-  withCredentials: true,
   timeout: 10000,
 });
 
@@ -100,7 +99,7 @@ export interface SubscriptionStatus {
 export const authService = {
   // Login de usuário
   async login(email: string, password: string, userType: 'user' | 'motoboy' | 'admin'): Promise<User> {
-    const response = await api.post('/auth/login', { email, password, userType });
+    const response = await api.post('/login', { email, password, userType });
     return response.data.user;
   },
 
@@ -111,7 +110,7 @@ export const authService = {
     name: string;
     phone: string;
   }): Promise<User> {
-    const response = await api.post('/auth/register-user', data);
+    const response = await api.post('/register', { ...data, userType: 'user' });
     return response.data.user;
   },
 
@@ -126,8 +125,8 @@ export const authService = {
     vehicleType: string;
     vehiclePlate: string;
   }): Promise<Motoboy> {
-    const response = await api.post('/auth/register/motoboy', data);
-    return response.data.motoboy;
+    const response = await api.post('/register', { ...data, userType: 'motoboy' });
+    return response.data.user;
   },
 
   // Verificar email
