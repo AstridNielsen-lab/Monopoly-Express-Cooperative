@@ -53,7 +53,7 @@
     }
   ],
   "env": {
-    "VITE_API_URL": "https://monopoly-express-api.vercel.app/api",
+    "VITE_API_URL": "https://monopoly-express-logistica-6dd9qmqx6.vercel.app/api",
     "VITE_APP_NAME": "Monopoly Express",
     "VITE_ENVIRONMENT": "production",
     "NODE_ENV": "production",

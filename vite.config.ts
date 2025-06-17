@@ -12,7 +12,7 @@ export default defineConfig({
     host: true,
     proxy: {
       '/api': {
-        target: 'https://monopoly-express-api.vercel.app',
+        target: 'https://monopoly-express-logistica-6dd9qmqx6.vercel.app',
         changeOrigin: true,
         secure: true,
       },
