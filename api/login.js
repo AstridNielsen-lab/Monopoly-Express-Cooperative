@@ -1,13 +1,15 @@
-import { VercelRequest, VercelResponse } from '@vercel/node';
-import { getDatabase } from './database';
 import crypto from 'crypto';
 import jwt from 'jsonwebtoken';
 
-function hashPassword(password: string): string {
+// Base de dados em memória (compartilhada com register)
+let users = [];
+let motoboys = [];
+
+function hashPassword(password) {
   return crypto.createHash('sha256').update(password).digest('hex');
 }
 
-export default function handler(req: VercelRequest, res: VercelResponse) {
+export default function handler(req, res) {
   // Configurar CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -31,15 +33,14 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
       return;
     }
 
-    const db = getDatabase();
     const hashedPassword = hashPassword(password);
 
     // Verificar nas duas tabelas
-    let user = db.prepare('SELECT * FROM users WHERE email = ? AND password_hash = ?').get(email, hashedPassword);
+    let user = users.find(u => u.email === email && u.password_hash === hashedPassword);
     let userType = 'user';
 
     if (!user) {
-      user = db.prepare('SELECT * FROM motoboys WHERE email = ? AND password_hash = ?').get(email, hashedPassword);
+      user = motoboys.find(m => m.email === email && m.password_hash === hashedPassword);
       userType = 'motoboy';
     }
 
@@ -81,7 +82,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     console.error('Login error:', error);
     res.status(500).json({ 
       error: 'Erro interno do servidor',
-      details: error instanceof Error ? error.message : 'Unknown error'
+      details: error.message
     });
   }
 }
