@@ -114,8 +114,9 @@ export const authService = {
     password: string;
     name: string;
     phone: string;
+    userType?: 'user' | 'motoboy';
   }): Promise<User> {
-    const response = await api.post('/register', { ...data, userType: 'user' });
+    const response = await api.post('/register', { ...data, userType: data.userType || 'user' });
     return response.data.user;
   },
 

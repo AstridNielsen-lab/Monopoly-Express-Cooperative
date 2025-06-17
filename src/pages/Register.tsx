@@ -41,20 +41,13 @@ const Register: React.FC = () => {
     setIsLoading(true);
 
     try {
+      // Usar a mesma função de registro para ambos
+      await register(formData.email, formData.password, formData.name, formData.phone, userType);
+      
+      // Redirecionar baseado no tipo de usuário
       if (userType === 'motoboy') {
-        // Usar registerMotoboy para motoboys
-        await registerMotoboy({
-          email: formData.email,
-          password: formData.password,
-          name: formData.name,
-          phone: formData.phone
-        });
-        
-        // Redirecionar para app do motoboy após registro bem-sucedido
         navigate('/motoboy');
       } else {
-        // Usar register para usuários comuns
-        await register(formData.email, formData.password, formData.name, formData.phone, userType);
         navigate('/app');
       }
     } catch (error) {

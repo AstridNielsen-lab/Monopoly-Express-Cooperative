@@ -94,19 +94,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       console.log(`📝 Registrando usuário: ${email} como ${userType}`);
       
-      if (userType === 'user') {
-        const userData = await authService.registerUser({ email, password, name, phone });
-        
-        const authUser = convertToAuthUser(userData);
-        setUser(authUser);
-        localStorage.setItem('monopoly_express_user', JSON.stringify(authUser));
-        
-        toast.success(`Conta criada com sucesso! Bem-vindo(a), ${name}!`);
-        console.log('✅ Registro de usuário realizado com sucesso');
-      } else {
-        // Para motoboy, não faz login automático, apenas registra
-        throw new Error('Use registerMotoboy para registrar motoboys');
-      }
+      // Usar a mesma API para ambos, apenas mudando o userType
+      const userData = await authService.registerUser({ email, password, name, phone, userType });
+      
+      const authUser = convertToAuthUser(userData);
+      setUser(authUser);
+      localStorage.setItem('monopoly_express_user', JSON.stringify(authUser));
+      
+      toast.success(`Conta criada com sucesso! Bem-vindo(a), ${name}!`);
+      console.log('✅ Registro realizado com sucesso');
     } catch (error) {
       const errorMessage = handleApiError(error);
       console.error('❌ Erro no registro:', errorMessage);
