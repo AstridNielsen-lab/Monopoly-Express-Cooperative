@@ -61,9 +61,9 @@ export interface Motoboy {
   name: string;
   phone: string;
   cpf: string;
-  cnh: string;
+  cnh?: string;
   vehicle_type: string;
-  vehicle_plate: string;
+  vehicle_plate?: string;
   status: 'pending' | 'approved' | 'rejected';
   is_available?: boolean;
   created_at?: string;
@@ -121,9 +121,9 @@ export const authService = {
     name: string;
     phone: string;
     cpf: string;
-    cnh: string;
+    cnh?: string;
     vehicleType: string;
-    vehiclePlate: string;
+    vehiclePlate?: string;
   }): Promise<Motoboy> {
     const response = await api.post('/register', { ...data, userType: 'motoboy' });
     return response.data.user;

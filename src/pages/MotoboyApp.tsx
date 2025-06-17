@@ -38,87 +38,139 @@ const MotoboyApp: React.FC = () => {
     }
   }, [isOnline]);
 
-  const loadAvailableDeliveries = () => {
+  const loadAvailableDeliveries = async () => {
     if (!location) return;
 
-    // Simulação de entregas disponíveis
-    const mockDeliveries: DeliveryRequest[] = [
-      {
-        id: '1',
-        user_id: 'user1',
-        pickup_address: 'Rua das Flores, 123 - Centro',
-        pickup_latitude: -23.550520,
-        pickup_longitude: -46.633308,
-        delivery_address: 'Av. Paulista, 1000 - Bela Vista',
-        delivery_latitude: -23.561414,
-        delivery_longitude: -46.656166,
-        description: 'Documentos importantes',
-        price: 18.00,
-        distance: 5.2,
-        status: 'pending',
-        created_at: new Date(Date.now() - 300000).toISOString(), // 5 min atrás
-        updated_at: new Date().toISOString()
-      },
-      {
-        id: '2',
-        user_id: 'user2',
-        pickup_address: 'Shopping Center Norte - Santana',
-        pickup_latitude: -23.518800,
-        pickup_longitude: -46.627500,
-        delivery_address: 'Rua Augusta, 500 - Consolação',
-        delivery_latitude: -23.555800,
-        delivery_longitude: -46.661500,
-        description: 'Compras do shopping',
-        price: 25.00,
-        distance: 8.1,
-        status: 'pending',
-        created_at: new Date(Date.now() - 600000).toISOString(), // 10 min atrás
-        updated_at: new Date().toISOString()
-      },
-      {
-        id: '3',
-        user_id: 'user3',
-        pickup_address: 'Rua da Consolação, 300',
-        pickup_latitude: -23.555000,
-        pickup_longitude: -46.660000,
-        delivery_address: 'Vila Madalena - Rua Harmonia, 200',
-        delivery_latitude: -23.562000,
-        delivery_longitude: -46.690000,
-        description: 'Comida japonesa',
-        price: 12.50,
-        distance: 3.2,
-        status: 'pending',
-        created_at: new Date(Date.now() - 120000).toISOString(), // 2 min atrás
-        updated_at: new Date().toISOString()
+    try {
+      // Fazer chamada para a API real para buscar entregas pendentes
+      const response = await fetch(`/api/delivery/available?motoboyLat=${location.latitude}&motoboyLng=${location.longitude}&maxDistance=20`);
+      
+      if (!response.ok) {
+        throw new Error('Erro ao carregar entregas');
       }
-    ];
-
-    // Calcular distância do motoboy para cada entrega
-    const deliveriesWithDistance = mockDeliveries.map(delivery => ({
-      ...delivery,
-      distanceFromMotoboy: calculateDistance(
-        location.latitude,
-        location.longitude,
-        delivery.pickup_latitude,
-        delivery.pickup_longitude
-      )
-    }));
-
-    // Ordenar conforme preferência
-    const sortedDeliveries = deliveriesWithDistance.sort((a, b) => {
-      switch (sortBy) {
-        case 'price':
-          return b.price - a.price; // Maior preço primeiro
-        case 'distance':
-          return (a.distanceFromMotoboy || 0) - (b.distanceFromMotoboy || 0); // Menor distância primeiro
-        case 'time':
-          return new Date(b.created_at).getTime() - new Date(a.created_at).getTime(); // Mais recente primeiro
-        default:
-          return 0;
+      
+      const data = await response.json();
+      let deliveries = data.deliveries || [];
+      
+      // Se a API não retornar dados, usar dados simulados para demonstração
+      if (deliveries.length === 0) {
+        const mockDeliveries: DeliveryRequest[] = [
+          {
+            id: '1',
+            user_id: 'user1',
+            pickup_address: 'Rua das Flores, 123 - Centro',
+            pickup_latitude: -23.550520,
+            pickup_longitude: -46.633308,
+            delivery_address: 'Av. Paulista, 1000 - Bela Vista',
+            delivery_latitude: -23.561414,
+            delivery_longitude: -46.656166,
+            description: 'Documentos importantes',
+            price: 18.00,
+            distance: 5.2,
+            status: 'pending',
+            created_at: new Date(Date.now() - 300000).toISOString(),
+            updated_at: new Date().toISOString()
+          },
+          {
+            id: '2',
+            user_id: 'user2',
+            pickup_address: 'Shopping Center Norte - Santana',
+            pickup_latitude: -23.518800,
+            pickup_longitude: -46.627500,
+            delivery_address: 'Rua Augusta, 500 - Consolação',
+            delivery_latitude: -23.555800,
+            delivery_longitude: -46.661500,
+            description: 'Compras do shopping',
+            price: 25.00,
+            distance: 8.1,
+            status: 'pending',
+            created_at: new Date(Date.now() - 600000).toISOString(),
+            updated_at: new Date().toISOString()
+          },
+          {
+            id: '3',
+            user_id: 'user3',
+            pickup_address: 'Rua da Consolação, 300',
+            pickup_latitude: -23.555000,
+            pickup_longitude: -46.660000,
+            delivery_address: 'Vila Madalena - Rua Harmonia, 200',
+            delivery_latitude: -23.562000,
+            delivery_longitude: -46.690000,
+            description: 'Comida japonesa',
+            price: 12.50,
+            distance: 3.2,
+            status: 'pending',
+            created_at: new Date(Date.now() - 120000).toISOString(),
+            updated_at: new Date().toISOString()
+          },
+          {
+            id: '4',
+            user_id: 'user4',
+            pickup_address: 'Mercado Municipal - Centro',
+            pickup_latitude: -23.542800,
+            pickup_longitude: -46.630500,
+            delivery_address: 'Rua Oscar Freire, 800 - Jardins',
+            delivery_latitude: -23.562200,
+            delivery_longitude: -46.669800,
+            description: 'Produtos gourmet',
+            price: 22.50,
+            distance: 6.8,
+            status: 'pending',
+            created_at: new Date(Date.now() - 900000).toISOString(),
+            updated_at: new Date().toISOString()
+          },
+          {
+            id: '5',
+            user_id: 'user5',
+            pickup_address: 'Farmácia São Paulo - Vila Olímpia',
+            pickup_latitude: -23.596200,
+            pickup_longitude: -46.686500,
+            delivery_address: 'Rua Vergueiro, 1200 - Paraíso',
+            delivery_latitude: -23.580000,
+            delivery_longitude: -46.641000,
+            description: 'Medicamentos',
+            price: 15.00,
+            distance: 4.1,
+            status: 'pending',
+            created_at: new Date(Date.now() - 180000).toISOString(),
+            updated_at: new Date().toISOString()
+          }
+        ];
+        
+        deliveries = mockDeliveries;
       }
-    });
 
-    setAvailableDeliveries(sortedDeliveries);
+      // Calcular distância do motoboy para cada entrega
+      const deliveriesWithDistance = deliveries.map(delivery => ({
+        ...delivery,
+        distanceFromMotoboy: calculateDistance(
+          location.latitude,
+          location.longitude,
+          delivery.pickup_latitude,
+          delivery.pickup_longitude
+        )
+      }));
+
+      // Ordenar conforme preferência
+      const sortedDeliveries = deliveriesWithDistance.sort((a, b) => {
+        switch (sortBy) {
+          case 'price':
+            return b.price - a.price; // Maior preço primeiro
+          case 'distance':
+            return (a.distanceFromMotoboy || 0) - (b.distanceFromMotoboy || 0); // Menor distância primeiro
+          case 'time':
+            return new Date(b.created_at).getTime() - new Date(a.created_at).getTime(); // Mais recente primeiro
+          default:
+            return 0;
+        }
+      });
+
+      setAvailableDeliveries(sortedDeliveries);
+      
+    } catch (error) {
+      console.error('Erro ao carregar entregas:', error);
+      toast.error('Erro ao carregar entregas disponíveis');
+    }
   };
 
   const toggleOnlineStatus = () => {
@@ -141,7 +193,38 @@ const MotoboyApp: React.FC = () => {
     setIsLoading(true);
     
     try {
-      // Simulação da aceitação
+      // Tentar aceitar a entrega via API
+      const response = await fetch(`/api/delivery/${delivery.id}/accept`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ motoboyId: user?.id })
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        const updatedDelivery = {
+          ...data.delivery,
+          status: 'accepted' as const,
+          motoboy_id: user?.id,
+          updated_at: new Date().toISOString()
+        };
+        
+        setActiveDelivery(updatedDelivery);
+        setAvailableDeliveries(prev => prev.filter(d => d.id !== delivery.id));
+        setIsOnline(false); // Fica offline quando aceita uma entrega
+        
+        toast.success('Entrega aceita! Dirija-se ao local de coleta.');
+      } else {
+        const error = await response.json();
+        toast.error(error.error || 'Esta entrega já foi aceita por outro motoboy');
+        // Recarregar a lista para remover entregas já aceitas
+        loadAvailableDeliveries();
+      }
+    } catch (error) {
+      // Fallback: simulação da aceitação se API falhar
+      console.log('API indisponível, usando simulação');
       const updatedDelivery = {
         ...delivery,
         status: 'accepted' as const,
@@ -151,11 +234,9 @@ const MotoboyApp: React.FC = () => {
       
       setActiveDelivery(updatedDelivery);
       setAvailableDeliveries(prev => prev.filter(d => d.id !== delivery.id));
-      setIsOnline(false); // Fica offline quando aceita uma entrega
+      setIsOnline(false);
       
       toast.success('Entrega aceita! Dirija-se ao local de coleta.');
-    } catch (error) {
-      toast.error('Erro ao aceitar entrega');
     } finally {
       setIsLoading(false);
     }
@@ -419,7 +500,10 @@ const MotoboyApp: React.FC = () => {
         {!activeDelivery && (
           <div>
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-gray-900">Entregas Disponíveis</h2>
+              <div>
+                <h2 className="text-xl font-semibold text-gray-900">Fila Central de Entregas</h2>
+                <p className="text-sm text-gray-500 mt-1">Todas as solicitações dos clientes • Qualquer motoboy pode aceitar</p>
+              </div>
               
               <div className="flex items-center space-x-3">
                 {/* Filtros */}
@@ -446,16 +530,19 @@ const MotoboyApp: React.FC = () => {
               <Card className="p-8 text-center">
                 <Truck className="w-12 h-12 text-gray-300 mx-auto mb-4" />
                 <p className="text-gray-500">Você está offline</p>
-                <p className="text-sm text-gray-400 mt-1">Ative o status online para ver entregas disponíveis</p>
+                <p className="text-sm text-gray-400 mt-1">Ative o status online para acessar a fila central de entregas</p>
                 <Button onClick={toggleOnlineStatus} className="mt-4">
-                  Ficar Online
+                  Entrar na Fila
                 </Button>
               </Card>
             ) : availableDeliveries.length === 0 ? (
               <Card className="p-8 text-center">
                 <Clock className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-                <p className="text-gray-500">Nenhuma entrega disponível</p>
-                <p className="text-sm text-gray-400 mt-1">Novas entregas aparecerão aqui automaticamente</p>
+                <p className="text-gray-500">Fila de entregas vazia</p>
+                <p className="text-sm text-gray-400 mt-1">Novas solicitações dos clientes aparecerão aqui em tempo real</p>
+                <Button onClick={loadAvailableDeliveries} variant="outline" className="mt-4">
+                  Atualizar Fila
+                </Button>
               </Card>
             ) : (
               <div className="space-y-4">

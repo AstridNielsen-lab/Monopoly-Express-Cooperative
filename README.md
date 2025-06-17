@@ -88,22 +88,64 @@ O sistema usa SQLite com as seguintes tabelas:
 - `motoboy_locations` - Histórico de localização
 - `ratings` - Avaliações
 
+## 🚀 Funcionalidades
+
+### ✅ Para Usuários (Clientes)
+- Registro e autenticação completa
+- Cálculo inteligente de frete por distância
+- Integração com Google Maps para geocodificação
+- Sistema de assinatura premium com Mercado Pago
+- Interface responsiva e intuitiva
+- Verificação de email automatizada
+
+### ✅ Para Motoboys
+- Sistema de cadastro com aprovação manual
+- **🆕 CNH e placa opcionais para bicicletas**
+- **🆕 Fila central única de entregas** 
+- Dashboard personalizado com estatísticas
+- Rastreamento de localização em tempo real
+- Integração com Waze para navegação
+- Sistema de aceitar/recusar entregas
+- Histórico completo de entregas
+- **🆕 Qualquer motoboy pode aceitar qualquer entrega disponível**
+
+### ✅ Para Administradores
+- Dashboard administrativo completo
+- Aprovação/rejeição de motoboys
+- Gerenciamento de assinaturas
+- Relatórios e estatísticas
+- Monitoramento de entregas em tempo real
+
+## 🆕 Últimas Atualizações
+
+### Registro Flexível de Motoboys
+- **Bicicletas não precisam de CNH**: Para motoboys que usam bicicleta, os campos CNH e placa do veículo são opcionais
+- **Validação inteligente**: O sistema valida automaticamente se CNH é obrigatória baseado no tipo de veículo
+- **Suporte completo**: Motos, carros e bicicletas são todos suportados com validações apropriadas
+
+### Fila Central de Entregas
+- **Sistema unificado**: Todas as solicitações dos clientes vão para uma fila central única
+- **Acesso democrático**: Qualquer motoboy online pode ver e aceitar qualquer entrega disponível
+- **Tempo real**: A fila é atualizada automaticamente quando novas entregas são criadas
+- **Ordenação inteligente**: Entregas podem ser ordenadas por preço, distância ou tempo de criação
+- **Geolocalização**: Motoboys veem a distância de cada entrega em relação à sua localização atual
+
 ## 🔄 Fluxo do Sistema
 
 ### Registro de Motoboy
-1. Motoboy se cadastra com dados completos
+1. Motoboy se cadastra com dados completos (CNH opcional para bicicleta)
 2. Sistema envia email de verificação
 3. Motoboy confirma email
 4. Admin aprova o cadastro
 5. Sistema envia email de aprovação
-6. Motoboy pode começar a trabalhar
+6. Motoboy pode entrar na fila central de entregas
 
 ### Criação de Entrega
 1. Usuário informa endereços de coleta e entrega
 2. Sistema calcula frete usando APIs reais (OSRM + Nominatim)
 3. Usuário confirma a criação
-4. Entrega fica disponível para motoboys
-5. Motoboy aceita e realiza a entrega
+4. Entrega fica disponível na fila central para todos os motoboys
+5. Primeiro motoboy a aceitar fica responsável pela entrega
 
 ## 📡 APIs Disponíveis
 

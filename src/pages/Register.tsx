@@ -21,7 +21,7 @@ const Register: React.FC = () => {
   });
   const [userType, setUserType] = useState<'user' | 'motoboy'>('user');
   const [isLoading, setIsLoading] = useState(false);
-  const { register } = useAuth();
+  const { register, registerMotoboy } = useAuth();
   const navigate = useNavigate();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -45,17 +45,29 @@ const Register: React.FC = () => {
     setIsLoading(true);
 
     try {
-      await register(formData.email, formData.password, formData.name, formData.phone, userType);
-      toast.success('Conta criada com sucesso!');
-      
-      // Redirecionar baseado no tipo de usuário
       if (userType === 'motoboy') {
-        navigate('/motoboy');
+        // Usar registerMotoboy para motoboys
+        await registerMotoboy({
+          email: formData.email,
+          password: formData.password,
+          name: formData.name,
+          phone: formData.phone,
+          cpf: formData.cpf,
+          cnh: formData.cnh || undefined,
+          vehicleType: formData.vehicleType,
+          vehiclePlate: formData.vehiclePlate || undefined
+        });
+        
+        // Redirecionar para login após registro
+        navigate('/login');
       } else {
+        // Usar register para usuários comuns
+        await register(formData.email, formData.password, formData.name, formData.phone, userType);
+        toast.success('Conta criada com sucesso!');
         navigate('/app');
       }
     } catch (error) {
-      toast.error('Erro ao criar conta. Tente novamente.');
+      // O erro já é tratado dentro das funções
     } finally {
       setIsLoading(false);
     }
@@ -181,7 +193,7 @@ const Register: React.FC = () => {
 
                 <div>
                   <label htmlFor="cnh" className="block text-sm font-medium text-gray-700 mb-1">
-                    CNH
+                    CNH {formData.vehicleType === 'bicicleta' && <span className="text-gray-500">(opcional para bicicleta)</span>}
                   </label>
                   <input
                     type="text"
@@ -189,9 +201,9 @@ const Register: React.FC = () => {
                     name="cnh"
                     value={formData.cnh}
                     onChange={handleInputChange}
-                    required={userType === 'motoboy'}
+                    required={userType === 'motoboy' && formData.vehicleType !== 'bicicleta'}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Número da CNH"
+                    placeholder={formData.vehicleType === 'bicicleta' ? "Número da CNH (opcional)" : "Número da CNH"}
                   />
                 </div>
               </div>
@@ -216,7 +228,7 @@ const Register: React.FC = () => {
 
                 <div>
                   <label htmlFor="vehiclePlate" className="block text-sm font-medium text-gray-700 mb-1">
-                    Placa
+                    Placa {formData.vehicleType === 'bicicleta' && <span className="text-gray-500">(opcional para bicicleta)</span>}
                   </label>
                   <input
                     type="text"
@@ -224,9 +236,9 @@ const Register: React.FC = () => {
                     name="vehiclePlate"
                     value={formData.vehiclePlate}
                     onChange={handleInputChange}
-                    required={userType === 'motoboy'}
+                    required={userType === 'motoboy' && formData.vehicleType !== 'bicicleta'}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="ABC-1234"
+                    placeholder={formData.vehicleType === 'bicicleta' ? "Placa (opcional)" : "ABC-1234"}
                   />
                 </div>
               </div>

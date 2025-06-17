@@ -77,9 +77,19 @@ router.post('/register/motoboy', async (req, res) => {
   try {
     const { email, password, name, phone, cpf, cnh, vehicleType, vehiclePlate } = req.body;
     
-    // Validações
-    if (!email || !password || !name || !phone || !cpf || !cnh || !vehicleType || !vehiclePlate) {
-      return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
+    // Validações básicas
+    if (!email || !password || !name || !phone || !cpf || !vehicleType) {
+      return res.status(400).json({ error: 'Email, senha, nome, telefone, CPF e tipo de veículo são obrigatórios' });
+    }
+    
+    // Validações específicas por tipo de veículo
+    if (vehicleType !== 'bicicleta') {
+      if (!cnh) {
+        return res.status(400).json({ error: 'CNH é obrigatória para motocicletas e carros' });
+      }
+      if (!vehiclePlate) {
+        return res.status(400).json({ error: 'Placa do veículo é obrigatória para motocicletas e carros' });
+      }
     }
     
     if (password.length < 6) {
@@ -114,8 +124,12 @@ router.post('/register/motoboy', async (req, res) => {
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
     
+    // Para bicicleta, CNH e placa podem ser null
+    const cnhValue = vehicleType === 'bicicleta' ? (cnh || null) : cnh;
+    const plateValue = vehicleType === 'bicicleta' ? (vehiclePlate || null) : vehiclePlate;
+    
     stmt.run(
-      motoboyId, email, name, phone, cpf, cnh, vehicleType, vehiclePlate,
+      motoboyId, email, name, phone, cpf, cnhValue, vehicleType, plateValue,
       passwordHash, verificationToken
     );
     
