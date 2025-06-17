@@ -58,12 +58,11 @@ const Register: React.FC = () => {
           vehiclePlate: formData.vehiclePlate || undefined
         });
         
-        // Redirecionar para login após registro
-        navigate('/login');
+        // Redirecionar para app do motoboy após registro bem-sucedido
+        navigate('/motoboy');
       } else {
         // Usar register para usuários comuns
         await register(formData.email, formData.password, formData.name, formData.phone, userType);
-        toast.success('Conta criada com sucesso!');
         navigate('/app');
       }
     } catch (error) {

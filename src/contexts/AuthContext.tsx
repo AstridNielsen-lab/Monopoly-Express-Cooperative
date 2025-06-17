@@ -135,10 +135,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       console.log(`🏍️ Registrando motoboy: ${data.email}`);
       
-      await authService.registerMotoboy(data);
+      const userData = await authService.registerMotoboy(data);
+      
+      // Fazer login automático após registro bem-sucedido
+      const authUser = convertToAuthUser(userData);
+      setUser(authUser);
+      localStorage.setItem('monopoly_express_user', JSON.stringify(authUser));
       
       toast.success(
-        `Cadastro enviado com sucesso! ${data.name}, você receberá um email quando sua conta for aprovada.`,
+        `Bem-vindo(a), ${data.name}! Cadastro realizado com sucesso.`,
         { duration: 5000 }
       );
       console.log('✅ Registro de motoboy realizado com sucesso');

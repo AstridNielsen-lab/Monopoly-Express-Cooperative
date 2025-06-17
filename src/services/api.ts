@@ -99,8 +99,13 @@ export interface SubscriptionStatus {
 export const authService = {
   // Login de usuário
   async login(email: string, password: string, userType: 'user' | 'motoboy' | 'admin'): Promise<User> {
-    const response = await api.post('/login', { email, password, userType });
-    return response.data.user;
+    if (userType === 'motoboy') {
+      const response = await api.post('/auth/login/motoboy', { email, password });
+      return response.data.user;
+    } else {
+      const response = await api.post('/login', { email, password, userType });
+      return response.data.user;
+    }
   },
 
   // Registro de usuário
@@ -125,7 +130,7 @@ export const authService = {
     vehicleType: string;
     vehiclePlate?: string;
   }): Promise<Motoboy> {
-    const response = await api.post('/register', { ...data, userType: 'motoboy' });
+    const response = await api.post('/auth/register/motoboy', data);
     return response.data.user;
   },
 
