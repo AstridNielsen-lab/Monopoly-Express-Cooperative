@@ -1,12 +1,27 @@
 import Database from 'better-sqlite3';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import crypto from 'crypto';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const dbPath = path.join(__dirname, '../../database.sqlite');
+// Detectar ambiente
+const isProduction = process.env.NODE_ENV === 'production';
+const isVercel = process.env.VERCEL === '1';
+
+// Usar caminho apropriado baseado no ambiente
+const dbPath = (isProduction || isVercel) 
+  ? (process.env.DB_PATH || '/tmp/monopoly_express.db')
+  : path.join(__dirname, '../../database.sqlite');
+
 export const db = new Database(dbPath);
+
+if (isProduction || isVercel) {
+  console.log('🚀 Ambiente serverless detectado - SQLite em /tmp');
+} else {
+  console.log('🔧 Ambiente de desenvolvimento - SQLite local');
+}
 
 // Configurações para performance
 db.pragma('journal_mode = WAL');

@@ -5,8 +5,13 @@
   "installCommand": "npm install",
   "functions": {
     "api/**/*.js": {
-      "runtime": "nodejs18.x"
+      "runtime": "nodejs18.x",
+      "maxDuration": 30
     }
+  },
+  "env": {
+    "NODE_ENV": "production",
+    "DB_PATH": "/tmp/monopoly_express.db"
   },
   "rewrites": [
     {
