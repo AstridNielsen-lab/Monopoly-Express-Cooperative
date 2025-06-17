@@ -1,13 +1,15 @@
-import { VercelRequest, VercelResponse } from '@vercel/node';
-import { getDatabase } from './database';
 import crypto from 'crypto';
 import { v4 as uuidv4 } from 'uuid';
 
-function hashPassword(password: string): string {
+// Base de dados em memória
+let users = [];
+let motoboys = [];
+
+function hashPassword(password) {
   return crypto.createHash('sha256').update(password).digest('hex');
 }
 
-export default function handler(req: VercelRequest, res: VercelResponse) {
+export default function handler(req, res) {
   // Configurar CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -31,7 +33,6 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
       return;
     }
 
-    const db = getDatabase();
     const hashedPassword = hashPassword(password);
     const userId = uuidv4();
 
@@ -42,19 +43,26 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
       }
 
       // Verificar se email já existe
-      const existingMotoboy = db.prepare('SELECT id FROM motoboys WHERE email = ?').get(email);
+      const existingMotoboy = motoboys.find(m => m.email === email);
       if (existingMotoboy) {
         res.status(400).json({ error: 'Email já cadastrado' });
         return;
       }
 
       // Inserir motoboy
-      const stmt = db.prepare(`
-        INSERT INTO motoboys (id, email, name, phone, cpf, cnh, vehicle_type, vehicle_plate, password_hash)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-      `);
-      
-      stmt.run(userId, email, name, phone, cpf, cnh, vehicleType, vehiclePlate, hashedPassword);
+      motoboys.push({
+        id: userId,
+        email,
+        name,
+        phone,
+        cpf,
+        cnh,
+        vehicle_type: vehicleType,
+        vehicle_plate: vehiclePlate,
+        password_hash: hashedPassword,
+        status: 'pending',
+        created_at: new Date().toISOString()
+      });
 
       res.status(201).json({
         message: 'Motoboy cadastrado com sucesso! Aguarde aprovação.',
@@ -68,19 +76,22 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
       });
     } else {
       // Verificar se email já existe
-      const existingUser = db.prepare('SELECT id FROM users WHERE email = ?').get(email);
+      const existingUser = users.find(u => u.email === email);
       if (existingUser) {
         res.status(400).json({ error: 'Email já cadastrado' });
         return;
       }
 
       // Inserir usuário
-      const stmt = db.prepare(`
-        INSERT INTO users (id, email, name, phone, password_hash)
-        VALUES (?, ?, ?, ?, ?)
-      `);
-      
-      stmt.run(userId, email, name, phone, hashedPassword);
+      users.push({
+        id: userId,
+        email,
+        name,
+        phone,
+        password_hash: hashedPassword,
+        user_type: 'user',
+        created_at: new Date().toISOString()
+      });
 
       res.status(201).json({
         message: 'Usuário cadastrado com sucesso!',
@@ -97,7 +108,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     console.error('Register error:', error);
     res.status(500).json({ 
       error: 'Erro interno do servidor',
-      details: error instanceof Error ? error.message : 'Unknown error'
+      details: error.message
     });
   }
 }
