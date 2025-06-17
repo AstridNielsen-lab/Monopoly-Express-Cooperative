@@ -2,9 +2,8 @@
   "name": "monopoly-express-api",
   "version": "1.0.0",
   "description": "APIs do Monopoly Express",
-  "type": "module",
   "dependencies": {
-    "crypto": "^1.0.1",
+    "better-sqlite3": "^9.2.2",
     "uuid": "^9.0.1"
   }
 }
