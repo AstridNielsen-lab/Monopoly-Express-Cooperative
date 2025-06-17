@@ -37,7 +37,7 @@ async function testMercadoPago() {
         currency_id: 'BRL'
       },
       payer_email: 'teste@monopolyexpress.com',
-      back_url: 'http://localhost:5173/subscription/success',
+      back_url: 'https://monopoly-express-logistica.vercel.app/subscription/success',
       status: 'pending'
     };
     
