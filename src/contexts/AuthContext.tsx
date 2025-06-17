@@ -13,10 +13,6 @@ interface AuthContextType {
     password: string;
     name: string;
     phone: string;
-    cpf: string;
-    cnh?: string;
-    vehicleType: string;
-    vehiclePlate?: string;
   }) => Promise<void>;
   checkSubscription: () => Promise<void>;
   isLoading: boolean;
@@ -126,10 +122,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     password: string;
     name: string;
     phone: string;
-    cpf: string;
-    cnh?: string;
-    vehicleType: string;
-    vehiclePlate?: string;
   }) => {
     setIsLoading(true);
     try {

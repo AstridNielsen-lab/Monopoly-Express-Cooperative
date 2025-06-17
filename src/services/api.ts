@@ -125,10 +125,6 @@ export const authService = {
     password: string;
     name: string;
     phone: string;
-    cpf: string;
-    cnh?: string;
-    vehicleType: string;
-    vehiclePlate?: string;
   }): Promise<Motoboy> {
     const response = await api.post('/auth/register/motoboy', data);
     return response.data.user;

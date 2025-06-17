@@ -51,11 +51,7 @@ const Register: React.FC = () => {
           email: formData.email,
           password: formData.password,
           name: formData.name,
-          phone: formData.phone,
-          cpf: formData.cpf,
-          cnh: formData.cnh || undefined,
-          vehicleType: formData.vehicleType,
-          vehiclePlate: formData.vehiclePlate || undefined
+          phone: formData.phone
         });
         
         // Redirecionar para app do motoboy após registro bem-sucedido
@@ -168,77 +164,16 @@ const Register: React.FC = () => {
             </div>
           </div>
 
-          {/* Campos específicos para motoboy */}
+          {/* Para motoboys, mostrar apenas uma mensagem explicativa */}
           {userType === 'motoboy' && (
-            <div className="space-y-4 border-t pt-4">
-              <h3 className="font-medium text-gray-900">Informações do Motoboy</h3>
-              
-              <div className="grid grid-cols-2 gap-4">
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div className="flex items-start">
+                <Truck className="w-5 h-5 text-blue-600 mr-3 mt-0.5" />
                 <div>
-                  <label htmlFor="cpf" className="block text-sm font-medium text-gray-700 mb-1">
-                    CPF
-                  </label>
-                  <input
-                    type="text"
-                    id="cpf"
-                    name="cpf"
-                    value={formData.cpf}
-                    onChange={handleInputChange}
-                    required={userType === 'motoboy'}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="000.000.000-00"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="cnh" className="block text-sm font-medium text-gray-700 mb-1">
-                    CNH {formData.vehicleType === 'bicicleta' && <span className="text-gray-500">(opcional para bicicleta)</span>}
-                  </label>
-                  <input
-                    type="text"
-                    id="cnh"
-                    name="cnh"
-                    value={formData.cnh}
-                    onChange={handleInputChange}
-                    required={userType === 'motoboy' && formData.vehicleType !== 'bicicleta'}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder={formData.vehicleType === 'bicicleta' ? "Número da CNH (opcional)" : "Número da CNH"}
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="vehicleType" className="block text-sm font-medium text-gray-700 mb-1">
-                    Tipo de veículo
-                  </label>
-                  <select
-                    id="vehicleType"
-                    name="vehicleType"
-                    value={formData.vehicleType}
-                    onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  >
-                    <option value="moto">Moto</option>
-                    <option value="carro">Carro</option>
-                    <option value="bicicleta">Bicicleta</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="vehiclePlate" className="block text-sm font-medium text-gray-700 mb-1">
-                    Placa {formData.vehicleType === 'bicicleta' && <span className="text-gray-500">(opcional para bicicleta)</span>}
-                  </label>
-                  <input
-                    type="text"
-                    id="vehiclePlate"
-                    name="vehiclePlate"
-                    value={formData.vehiclePlate}
-                    onChange={handleInputChange}
-                    required={userType === 'motoboy' && formData.vehicleType !== 'bicicleta'}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder={formData.vehicleType === 'bicicleta' ? "Placa (opcional)" : "ABC-1234"}
-                  />
+                  <h3 className="text-sm font-medium text-blue-900">Cadastro Simplificado</h3>
+                  <p className="text-sm text-blue-700 mt-1">
+                    Seus dados de veículo e documentos podem ser adicionados depois no seu perfil.
+                  </p>
                 </div>
               </div>
             </div>

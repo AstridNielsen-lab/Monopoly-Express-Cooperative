@@ -19,43 +19,19 @@ export default function handler(req, res) {
     email,
     password,
     name,
-    phone,
-    cpf,
-    cnh,
-    vehicleType,
-    vehiclePlate
+    phone
   } = req.body;
 
-  // Validações básicas
-  if (!email || !password || !name || !phone || !cpf || !vehicleType) {
+  // Validações básicas - apenas o essencial
+  if (!email || !password || !name || !phone) {
     return res.status(400).json({
-      error: 'Email, senha, nome, telefone, CPF e tipo de veículo são obrigatórios'
+      error: 'Email, senha, nome e telefone são obrigatórios'
     });
-  }
-
-  // Validação específica por tipo de veículo
-  if (vehicleType !== 'bicicleta') {
-    if (!cnh) {
-      return res.status(400).json({
-        error: 'CNH é obrigatória para motocicletas e carros'
-      });
-    }
-    if (!vehiclePlate) {
-      return res.status(400).json({
-        error: 'Placa do veículo é obrigatória para motocicletas e carros'
-      });
-    }
   }
 
   if (password.length < 6) {
     return res.status(400).json({
       error: 'Senha deve ter pelo menos 6 caracteres'
-    });
-  }
-
-  if (!['moto', 'carro', 'bicicleta'].includes(vehicleType)) {
-    return res.status(400).json({
-      error: 'Tipo de veículo inválido'
     });
   }
 
@@ -71,10 +47,10 @@ export default function handler(req, res) {
       email,
       name,
       phone,
-      cpf,
-      cnh: vehicleType === 'bicicleta' ? (cnh || null) : cnh,
-      vehicle_type: vehicleType,
-      vehicle_plate: vehicleType === 'bicicleta' ? (vehiclePlate || null) : vehiclePlate,
+      cpf: '000.000.000-00', // Valor padrão
+      cnh: '12345678901', // Valor padrão
+      vehicle_type: 'moto', // Valor padrão
+      vehicle_plate: 'ABC-1234', // Valor padrão
       user_type: 'motoboy',
       email_verified: true, // Simplificado - já aprovado
       is_approved: true,    // Simplificado - já aprovado
